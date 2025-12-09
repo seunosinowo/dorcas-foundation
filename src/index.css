@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm, dignified color palette for memorial/foundation */
+    --background: 30 25% 97%;
+    --foreground: 25 20% 12%;
+
+    --card: 30 22% 96%;
+    --card-foreground: 25 20% 12%;
+
+    --popover: 30 22% 96%;
+    --popover-foreground: 25 20% 12%;
+
+    /* Rich terracotta/brown - warmth, earth, heritage */
+    --primary: 24 65% 42%;
+    --primary-foreground: 30 25% 97%;
+
+    /* Deep navy blue - dignity, trust, elegance */
+    --secondary: 230 55% 28%;
+    --secondary-foreground: 30 25% 97%;
+
+    /* Soft cream for muted elements */
+    --muted: 30 20% 92%;
+    --muted-foreground: 25 15% 40%;
+
+    /* Bronze/copper accent */
+    --accent: 32 70% 48%;
+    --accent-foreground: 30 25% 97%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 30 25% 97%;
+
+    --border: 30 18% 88%;
+    --input: 30 18% 88%;
+    --ring: 24 65% 42%;
+
+    --radius: 0.75rem;
+
+    /* Custom foundation colors */
+    --terracotta: 24 65% 42%;
+    --terracotta-light: 28 60% 55%;
+    --terracotta-dark: 20 70% 32%;
+    --navy: 230 55% 28%;
+    --navy-light: 230 45% 40%;
+    --bronze: 32 70% 48%;
+    --cream: 30 25% 97%;
+    --cream-dark: 30 20% 92%;
+    --warm-charcoal: 25 20% 12%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(24 65% 42%) 0%, hsl(32 70% 48%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(30 25% 97%) 0%, hsl(30 20% 92%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(30 25% 97%) 0%, hsl(24 65% 42% / 0.1) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(25 20% 12% / 0.1);
+    --shadow-primary: 0 8px 30px -8px hsl(24 65% 42% / 0.3);
+    --shadow-elevated: 0 20px 50px -12px hsl(25 20% 12% / 0.15);
+
+    /* Sidebar (keeping for compatibility) */
+    --sidebar-background: 30 22% 96%;
+    --sidebar-foreground: 25 15% 40%;
+    --sidebar-primary: 24 65% 42%;
+    --sidebar-primary-foreground: 30 25% 97%;
+    --sidebar-accent: 30 20% 92%;
+    --sidebar-accent-foreground: 25 20% 12%;
+    --sidebar-border: 30 18% 88%;
+    --sidebar-ring: 24 65% 42%;
+  }
+
+  .dark {
+    --background: 25 18% 10%;
+    --foreground: 30 20% 95%;
+
+    --card: 25 16% 12%;
+    --card-foreground: 30 20% 95%;
+
+    --popover: 25 16% 12%;
+    --popover-foreground: 30 20% 95%;
+
+    --primary: 24 65% 50%;
+    --primary-foreground: 25 18% 10%;
+
+    --secondary: 230 45% 40%;
+    --secondary-foreground: 30 20% 95%;
+
+    --muted: 25 15% 18%;
+    --muted-foreground: 30 18% 60%;
+
+    --accent: 32 70% 55%;
+    --accent-foreground: 30 20% 95%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 30 20% 95%;
+
+    --border: 25 15% 20%;
+    --input: 25 15% 20%;
+    --ring: 24 65% 50%;
+
+    --sidebar-background: 25 18% 10%;
+    --sidebar-foreground: 30 18% 60%;
+    --sidebar-primary: 24 65% 50%;
+    --sidebar-primary-foreground: 25 18% 10%;
+    --sidebar-accent: 25 15% 18%;
+    --sidebar-accent-foreground: 30 20% 95%;
+    --sidebar-border: 25 15% 20%;
+    --sidebar-ring: 24 65% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-delay-1 {
+    animation: fadeIn 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in-delay-2 {
+    animation: fadeIn 0.8s ease-out 0.4s forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in-delay-3 {
+    animation: fadeIn 0.8s ease-out 0.6s forwards;
+    opacity: 0;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-primary {
+    box-shadow: var(--shadow-primary);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.7);
+}
