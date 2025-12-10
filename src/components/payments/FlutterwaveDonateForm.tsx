@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import Script from 'next/script'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
+import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from '@/components/ui/select'
 import { toast } from '@/components/ui/sonner'
 
 type FlutterwaveCustomer = { email: string; phone_number?: string; name?: string }
@@ -33,6 +34,30 @@ export default function FlutterwaveDonateForm({ defaultEmail = '' }: Props) {
   const [amount, setAmount] = useState('')
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
+  const [currency, setCurrency] = useState('NGN')
+  const [currencies] = useState<string[]>([
+    'GBP','CAD','XAF','COP','EGP','EUR','GHS','KES','INR','NGN','RWF','SLL','ZAR','TZS','UGX','USD','XOF','ZMW',
+  ])
+  const currencyNames: Record<string, string> = {
+    NGN: 'Nigerian Naira',
+    USD: 'US Dollar',
+    GBP: 'British Pound Sterling',
+    CAD: 'Canadian Dollar',
+    XAF: 'Central African CFA Franc',
+    COP: 'Colombian Peso',
+    EGP: 'Egyptian Pound',
+    EUR: 'Euro',
+    GHS: 'Ghanaian Cedi',
+    KES: 'Kenyan Shilling',
+    INR: 'Indian Rupee',
+    RWF: 'Rwandan Franc',
+    SLL: 'Sierra Leonean Leone',
+    ZAR: 'South African Rand',
+    TZS: 'Tanzanian Shilling',
+    UGX: 'Ugandan Shilling',
+    XOF: 'West African CFA Franc',
+    ZMW: 'Zambian Kwacha',
+  }
   const publicKey = process.env.NEXT_PUBLIC_FLW_PUBLIC_KEY
 
   const disabled = useMemo(() => {
@@ -53,12 +78,13 @@ export default function FlutterwaveDonateForm({ defaultEmail = '' }: Props) {
       }
 
       const txRef = `DSF-${Date.now()}`
+      const paymentOptions = currency === 'NGN' ? 'card,banktransfer,ussd' : 'card'
       window.FlutterwaveCheckout({
         public_key: publicKey,
         tx_ref: txRef,
         amount: amt,
-        currency: 'NGN',
-        payment_options: 'card,banktransfer,ussd',
+        currency,
+        payment_options: paymentOptions,
         customer: { email, phone_number: phone, name },
         customizations: {
           title: 'Dorcas Scholars Fund',
@@ -75,6 +101,7 @@ export default function FlutterwaveDonateForm({ defaultEmail = '' }: Props) {
       toast.error('Unable to start payment')
     }
   }
+
 
   return (
     <div className="bg-card rounded-2xl p-6 shadow-soft border border-border">
@@ -93,7 +120,22 @@ export default function FlutterwaveDonateForm({ defaultEmail = '' }: Props) {
           <Input type="tel" placeholder="08012345678" value={phone} onChange={(e) => setPhone(e.target.value)} />
         </div>
         <div>
-          <label className="text-sm text-muted-foreground mb-1 block">Gift (NGN)</label>
+          <label className="text-sm text-muted-foreground mb-1 block">Currency</label>
+          <Select value={currency} onValueChange={setCurrency}>
+            <SelectTrigger>
+              <SelectValue placeholder="Select currency" />
+            </SelectTrigger>
+            <SelectContent className="max-h-60 overflow-y-auto">
+              {currencies.map((c) => (
+                <SelectItem key={c} value={c}>
+                  {currencyNames[c] ? `${currencyNames[c]} (${c})` : c}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+        <div>
+          <label className="text-sm text-muted-foreground mb-1 block">Amount ({currency})</label>
           <Input type="number" min={100} placeholder="5000" value={amount} onChange={(e) => setAmount(e.target.value)} />
         </div>
         <Button disabled={disabled} onClick={startPayment} className="mt-2">

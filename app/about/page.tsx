@@ -78,7 +78,7 @@ export default function Page() {
                 <Target className="w-7 h-7 text-primary" />
               </div>
               <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Our Vision</h3>
-              <p className="text-muted-foreground leading-relaxed text-lg">To empower African youths to earn a living by providing trade skills training and financial support.</p>
+              <p className="text-muted-foreground leading-relaxed text-lg">To financially empower African youth through trade skills training scholarships</p>
             </div>
 
             <div className="bg-primary text-primary-foreground rounded-2xl p-8 md:p-10 shadow-gold">
@@ -95,11 +95,11 @@ export default function Page() {
       <section className="py-20 md:py-28 bg-muted/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <SectionHeading eyebrow="Our Impact Goal" title="Empowering 10,000 African Youths" description="Over the next 5 years, we aim to transform 10,000 lives through skills training and business support—2,000 young people empowered every year." />
+            <SectionHeading eyebrow="Our Impact Goal" title="Empowering 100,000 African Youths" description="Over the next 5 years, we aim to transform 100,000,000 lives through skills training and business support—2,000 young people empowered every year." />
 
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { number: '10,000', label: 'Youth Target' },
+                { number: '100,000,000', label: 'Youth Target' },
                 { number: '5', label: 'Years' },
                 { number: '2,000', label: 'Per Year' },
                 { number: '∞', label: 'Impact' },

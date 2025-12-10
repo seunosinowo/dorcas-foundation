@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ArrowRight, Heart, Target, Users, Lightbulb, Handshake, Scissors, Hammer, Utensils, MonitorSmartphone, Brush, Wrench, Cpu, PenTool, Briefcase, Gift } from 'lucide-react'
 import Image from 'next/image'
 import FlutterwaveDonateForm from '@/components/payments/FlutterwaveDonateForm'
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 const mumPortrait1 = '/mum-portrait-1.jpg'
 const mumCommunity1 = '/image/mum_6.jpg'
 const mumTeaching1 = '/image/mum-teaching-1.jpg'
@@ -53,7 +54,7 @@ const impactSoFar = [
 
 const givingOptions = [
   { icon: Heart, title: 'One-Time Donation', description: 'Make a single contribution to support our programs and help transform lives immediately.', amount: 'Any amount helps' },
-  { icon: Users, title: 'Sponsor a Youth', description: "Fully sponsor one young person's training and startup kit. Track their journey to success.", amount: 'From ₦150,000' },
+  { icon: Users, title: 'Sponsor a Youth', description: "Fully sponsor one young person's training and startup kit. Track their journey to success.", amount: 'Any amount helps'},
   { icon: Briefcase, title: 'Corporate Partnership', description: 'Partner with us as a business to create lasting impact in African communities.', amount: 'Custom packages' },
   { icon: Gift, title: 'In-Kind Donations', description: 'Donate equipment, materials, or services that support our training programs.', amount: 'Various needs' },
 ]
@@ -75,10 +76,17 @@ export default function Page() {
             </h1>
             <p className="mt-6 text-xl md:text-2xl text-muted-foreground font-light max-w-2xl mx-auto">Empowering African Youth Through Skills & Opportunity</p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/give" className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all shadow-elevated hover:shadow-lg gap-2">
-                Support Our Mission
-                <ArrowRight size={18} />
-              </Link>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all shadow-elevated hover:shadow-lg gap-2">
+                    Support Our Mission
+                    <ArrowRight size={18} />
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[540px] p-0">
+                  <FlutterwaveDonateForm />
+                </DialogContent>
+              </Dialog>
               <Link href="/about" className="inline-flex items-center justify-center px-8 py-4 border-2 border-foreground/20 text-foreground font-semibold rounded-full hover:bg-foreground/5 transition-all">
                 Learn More
               </Link>
@@ -124,7 +132,7 @@ export default function Page() {
                 <Target className="w-7 h-7 text-primary" />
               </div>
               <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Our Vision</h3>
-              <p className="text-muted-foreground leading-relaxed">To empower African youths to earn a living by providing trade skills training and financial support.</p>
+              <p className="text-muted-foreground leading-relaxed">To financially empower African youth through trade skills training scholarships.</p>
             </div>
 
             <div className="bg-secondary text-secondary-foreground rounded-2xl p-8 md:p-10 shadow-soft">
@@ -140,7 +148,7 @@ export default function Page() {
             <div className="inline-block bg-primary/5 rounded-2xl px-8 py-6 md:px-12 md:py-8">
               <p className="text-sm uppercase tracking-wider text-primary font-medium mb-2">Our Impact Goal</p>
               <p className="font-display text-3xl md:text-4xl font-bold text-foreground">
-                Empower <span className="text-primary">10,000</span> African Youths in 5 Years
+                Empower <span className="text-primary">100,000</span> African Youths in 5 Years
               </p>
               <p className="mt-2 text-muted-foreground">2,000 empowered every year through training and business support</p>
             </div>
@@ -152,10 +160,17 @@ export default function Page() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Give to the Vision" title="Your Support Changes Lives" description="Sponsor training or provide start-up kits to help youths begin earning with dignity." />
           <div className="mt-10 flex items-center justify-center">
-            <Link id="pay-now-button" href="/give" className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all gap-2">
-              Pay Now
-              <ArrowRight size={18} />
-            </Link>
+            <Dialog>
+              <DialogTrigger asChild>
+                <button id="pay-now-button" className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all gap-2">
+                  Give Now
+                  <ArrowRight size={18} />
+                </button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[540px] p-0">
+                <FlutterwaveDonateForm />
+              </DialogContent>
+            </Dialog>
           </div>
 
           <div className="mt-16 grid md:grid-cols-2 gap-8">
@@ -203,51 +218,6 @@ export default function Page() {
               <div key={stat.label} className="bg-card rounded-2xl p-8 shadow-soft border border-border text-center">
                 <p className="font-display text-4xl font-bold text-foreground">{stat.number}</p>
                 <p className="mt-2 text-muted-foreground">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Beneficiaries" title="People We’ve Supported" description="Real stories of Nigerian youths whose lives are changing through skills and startup support." />
-          <div className="mt-12 grid md:grid-cols-3 gap-8">
-            {[
-              {
-                name: 'Amina',
-                trade: 'Fashion Design',
-                city: 'Kano',
-                story:
-                  'Sponsored tailoring training and a starter sewing machine. Now takes custom orders from her community and supports her siblings.',
-                image: '/image/mum-community-1.jpg',
-              },
-              {
-                name: 'Chinedu',
-                trade: 'Barbing',
-                city: 'Enugu',
-                story:
-                  'Completed a 3-month barbing program and received a starter kit. He runs a small shop near the market and employs one apprentice.',
-                image: '/image/mum-teaching-1.jpg',
-              },
-              {
-                name: 'Bukola',
-                trade: 'UI/UX Design',
-                city: 'Lagos',
-                story:
-                  'Funded an intensive design bootcamp and laptop support. She now freelances for local SMEs, building simple, user-friendly interfaces.',
-                image: '/image/mum-reading-1.jpg',
-              },
-            ].map((b) => (
-              <div key={b.name} className="bg-card rounded-2xl overflow-hidden shadow-soft border border-border">
-                <div className="relative h-48">
-                  <Image src={b.image} alt={b.name} fill className="object-cover" />
-                </div>
-                <div className="p-6">
-                  <p className="font-display font-semibold">{b.name} • {b.city}</p>
-                  <p className="text-sm text-primary mb-2">{b.trade}</p>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{b.story}</p>
-                </div>
               </div>
             ))}
           </div>
