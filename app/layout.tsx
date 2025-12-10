@@ -4,9 +4,9 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 
 export const metadata = {
-  title: 'Dorcas Igbokwe Foundation | Empowering African Youth',
+  title: 'Dorcas Scholars Fund | Empowering African Youth',
   description:
-    'The Dorcas Igbokwe Foundation empowers African youth through trade skills training and business startup support.',
+    'The Dorcas Scholars Fund empowers African youth through trade skills training and business startup support.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

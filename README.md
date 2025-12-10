@@ -1,4 +1,4 @@
-# Dorcas Igbokwe Foundation — Empowering African Youth
+# Dorcas Scholars Fund — Empowering African Youth
 
 A modern Next.js website honoring Dorcas Igbokwe’s legacy and mission to empower African youth through trade skills training and business startup support.
 

@@ -2,13 +2,14 @@ import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Heart, Users, Briefcase, Gift, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+import FlutterwaveDonateForm from '@/components/payments/FlutterwaveDonateForm'
 const mumTeaching1 = '/mum-teaching-1.jpg'
 
 const givingOptions = [
-  { icon: Heart, title: 'One-Time Donation', description: 'Make a single contribution to support our programs and help transform lives immediately.', amount: 'Any amount helps' },
-  { icon: Users, title: 'Sponsor a Youth', description: "Fully sponsor one young person's training and startup kit. Track their journey to success.", amount: 'From ₦150,000' },
-  { icon: Briefcase, title: 'Corporate Partnership', description: 'Partner with us as a business to create lasting impact in African communities.', amount: 'Custom packages' },
-  { icon: Gift, title: 'In-Kind Donations', description: 'Donate equipment, materials, or services that support our training programs.', amount: 'Various needs' },
+  { icon: Heart, title: 'One-Time Donation', description: 'Make a single contribution to support our programs and help transform lives immediately.' },
+  { icon: Users, title: 'Sponsor a Youth', description: "Fully sponsor one young person's training and startup kit. Track their journey to success." },
+  { icon: Briefcase, title: 'Corporate Partnership', description: 'Partner with us as a business to create lasting impact in African communities.' },
+  { icon: Gift, title: 'In-Kind Donations', description: 'Donate equipment, materials, or services that support our training programs.' },
 ]
 
 const impactStats = [
@@ -52,7 +53,7 @@ export default function Page() {
                   <div className="flex-1">
                     <h3 className="font-display text-xl font-semibold text-foreground mb-2">{option.title}</h3>
                     <p className="text-muted-foreground leading-relaxed mb-4">{option.description}</p>
-                    <p className="text-sm font-medium text-primary">{option.amount}</p>
+                    
                   </div>
                 </div>
               </div>
@@ -61,46 +62,18 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-muted/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Your Impact" title="See What Your Gift Can Do" description="Every naira you give goes directly to empowering young people." />
-
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {impactStats.map((stat, index) => (
-              <div key={index} className="bg-card rounded-2xl p-6 text-center shadow-soft border border-border">
-                <p className="font-display text-2xl md:text-3xl font-bold text-primary mb-2">{stat.number}</p>
-                <p className="text-sm text-muted-foreground">{stat.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto">
-            <SectionHeading eyebrow="Donate Now" title="Bank Transfer Details" description="Make your donation via bank transfer to the account below." />
+            <SectionHeading eyebrow="Donate Online" title="Give Online Securely" description="Use your card or bank account to give instantly." />
 
-            <div className="mt-12 bg-secondary text-secondary-foreground rounded-2xl p-8 md:p-10 shadow-soft">
-              <div className="space-y-6">
-                <div>
-                  <p className="text-sm text-secondary-foreground/60 mb-1">Bank Name</p>
-                  <p className="font-semibold text-lg">Opay</p>
-                </div>
-                <div>
-                  <p className="text-sm text-secondary-foreground/60 mb-1">Account Name</p>
-                  <p className="font-semibold text-lg">Dorcas Igbokwe Foundation</p>
-                </div>
-                <div>
-                  <p className="text-sm text-secondary-foreground/60 mb-1">Account Number</p>
-                  <p className="font-display font-bold text-2xl tracking-wider">12345678</p>
-                </div>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-secondary-foreground/10">
-                <p className="text-sm text-secondary-foreground/70">After making your donation, please send us a confirmation via email or WhatsApp so we can acknowledge your gift and keep you updated on our impact.</p>
-              </div>
+            <div className="mt-8">
+              <FlutterwaveDonateForm />
             </div>
+
+            
 
             <div className="mt-8 text-center">
               <p className="text-muted-foreground mb-4">Have questions about donating?</p>

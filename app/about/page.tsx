@@ -23,7 +23,7 @@ export default function Page() {
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-tight">
               Honouring a Life of <span className="text-primary">Love & Service</span>
             </h1>
-            <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto">The Dorcas Igbokwe Foundation continues the legacy of a woman who dedicated her life to uplifting others.</p>
+            <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto">The Dorcas Scholars Fund continues the legacy of a woman who dedicated her life to uplifting others.</p>
           </div>
         </div>
       </section>
@@ -43,7 +43,7 @@ export default function Page() {
             <div>
               <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground leading-tight">About the Foundation</h2>
               <div className="mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
-                <p>The Dorcas Igbokwe Foundation was created to honour Dorcas Igbokwe, a woman whose life reflected love, compassion, and a deep commitment to helping others.</p>
+                <p>The Dorcas Scholars Fund was created to honour Dorcas Igbokwe, a woman whose life reflected love, compassion, and a deep commitment to helping others.</p>
                 <p>We continue her legacy by giving young Africans the skills, support, and confidence they need to build sustainable income and take care of their basic needs.</p>
               </div>
             </div>
@@ -57,7 +57,7 @@ export default function Page() {
             <div className="order-2 lg:order-1">
               <h2 className="font-display text-3xl md:text-4xl font-semibold leading-tight">Why We Exist</h2>
               <div className="mt-6 space-y-4 text-secondary-foreground/80 text-lg leading-relaxed">
-                <p>Many young Africans have the desire to work but lack the skills or capital to begin. The Dorcas Igbokwe Foundation bridges that gap by equipping them with practical skills and startup support.</p>
+                <p>Many young Africans have the desire to work but lack the skills or capital to begin. The Dorcas Scholars Fund bridges that gap by equipping them with practical skills and startup support.</p>
                 <p>Our work gives youths the opportunity to earn, provide for themselves, and build a future filled with dignity and hope—just as Dorcas Igbokwe did throughout her life.</p>
               </div>
             </div>
@@ -116,7 +116,7 @@ export default function Page() {
 
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Our Values" title="The Principles That Guide Us" description="These values reflect the life and spirit of Dorcas Igbokwe." />
+          <SectionHeading eyebrow="Our Values" title="The Principles That Guide Us" description="These values reflect the life and spirit of Dorcas Scholars Fund." />
 
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             {values.map((value) => (

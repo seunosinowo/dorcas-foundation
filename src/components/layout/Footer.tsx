@@ -14,7 +14,7 @@ export function Footer() {
               </div>
               <div>
                 <span className="font-display text-lg font-semibold">
-                  Dorcas Igbokwe Foundation
+                  Dorcas Scholars Fund
                 </span>
               </div>
             </div>
@@ -76,7 +76,7 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-secondary-foreground/10">
           <p className="text-center text-sm text-secondary-foreground/50">
-            © {new Date().getFullYear()} Dorcas Igbokwe Foundation. All rights reserved.
+            © {new Date().getFullYear()} Dorcas Scholars Fund. All rights reserved.
           </p>
         </div>
       </div>

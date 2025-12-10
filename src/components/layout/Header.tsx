@@ -26,17 +26,17 @@ export function Header() {
           <Link href="/" className="flex items-center gap-2">
             <Image
               src="/image/logo.jpg"
-              alt="Dorcas Igbokwe Foundation logo"
+              alt="Dorcas Scholars Fund logo"
               width={40}
               height={40}
               className="rounded-full object-cover"
               priority
             />
             <div className="hidden sm:block">
-              <span className="font-display text-lg font-semibold text-foreground">
-                Dorcas Igbokwe
+              <span className="font-display text-lg font-bold text-foreground">
+                Dorcas Scholars
               </span>
-              <span className="block text-xs text-muted-foreground -mt-1">Foundation</span>
+              <span className="block text-xs text-muted-foreground -mt-1">Fund</span>
             </div>
           </Link>
 

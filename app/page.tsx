@@ -1,7 +1,8 @@
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import Link from 'next/link'
-import { ArrowRight, Heart, Target, Users, Lightbulb, Handshake } from 'lucide-react'
+import { ArrowRight, Heart, Target, Users, Lightbulb, Handshake, Scissors, Hammer, Utensils, MonitorSmartphone, Brush, Wrench, Cpu, PenTool, Briefcase, Gift } from 'lucide-react'
 import Image from 'next/image'
+import FlutterwaveDonateForm from '@/components/payments/FlutterwaveDonateForm'
 const mumPortrait1 = '/mum-portrait-1.jpg'
 const mumCommunity1 = '/image/mum_6.jpg'
 const mumTeaching1 = '/image/mum-teaching-1.jpg'
@@ -33,24 +34,48 @@ const whatWeDo = [
   },
 ]
 
+const trades = [
+  { icon: PenTool, title: 'UI/UX Design' },
+  { icon: Scissors, title: 'Barbing' },
+  { icon: Utensils, title: 'Catering' },
+  { icon: Hammer, title: 'Carpentry' },
+  { icon: Wrench, title: 'Welding' },
+  { icon: Brush, title: 'Beauty & Makeup' },
+  { icon: MonitorSmartphone, title: 'Digital Skills' },
+  { icon: Cpu, title: 'Computer Literacy' },
+]
+
+const impactSoFar = [
+  { number: '25+', label: 'Youths Supported' },
+  { number: '12', label: 'Full Scholarships' },
+  { number: '8', label: 'Start-up Kits Provided' },
+]
+
+const givingOptions = [
+  { icon: Heart, title: 'One-Time Donation', description: 'Make a single contribution to support our programs and help transform lives immediately.', amount: 'Any amount helps' },
+  { icon: Users, title: 'Sponsor a Youth', description: "Fully sponsor one young person's training and startup kit. Track their journey to success.", amount: 'From ₦150,000' },
+  { icon: Briefcase, title: 'Corporate Partnership', description: 'Partner with us as a business to create lasting impact in African communities.', amount: 'Custom packages' },
+  { icon: Gift, title: 'In-Kind Donations', description: 'Donate equipment, materials, or services that support our training programs.', amount: 'Various needs' },
+]
+
 export default function Page() {
   return (
     <>
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image src={mumPortrait1} alt="Dorcas Igbokwe" fill priority className="object-cover object-top" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+          <Image src={mumTeaching1} alt="Trade skills training" fill priority className="object-cover object-top" />
+          <div className="absolute inset-0 bg-gradient-to-b from-secondary/40 via-background/60 to-background" />
         </div>
 
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
           <div className="animate-fade-in-up max-w-4xl mx-auto">
-            <span className="inline-block text-primary font-medium tracking-wider uppercase text-sm mb-4">In Loving Memory</span>
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
-              Dorcas Igbokwe <span className="text-primary">Foundation</span>
+            <span className="inline-block text-secondary font-medium tracking-wider uppercase text-sm mb-4">In Loving Memory</span>
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground leading-tight tracking-tight">
+              Dorcas Scholars <span className="text-secondary font-extrabold">Fund</span>
             </h1>
             <p className="mt-6 text-xl md:text-2xl text-muted-foreground font-light max-w-2xl mx-auto">Empowering African Youth Through Skills & Opportunity</p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/give" className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-full hover:bg-primary/90 transition-all shadow-gold hover:shadow-lg gap-2">
+              <Link href="/give" className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all shadow-elevated hover:shadow-lg gap-2">
                 Support Our Mission
                 <ArrowRight size={18} />
               </Link>
@@ -61,12 +86,9 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
-          <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center pt-2">
-            <div className="w-1.5 h-3 bg-primary rounded-full animate-pulse-soft" />
-          </div>
-        </div>
       </section>
+
+      
 
       <section className="py-20 md:py-28 bg-muted/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,7 +97,7 @@ export default function Page() {
               <span className="inline-block text-primary font-medium tracking-wider uppercase text-sm mb-4">About the Foundation</span>
               <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground leading-tight">Continuing Her Legacy of Love</h2>
               <p className="mt-6 text-muted-foreground text-lg leading-relaxed">
-                The Dorcas Igbokwe Foundation was created to honour Dorcas Igbokwe, a woman whose life reflected love, compassion, and a deep commitment to helping others. We continue her legacy by giving young Africans the skills, support, and confidence they need to build sustainable income and take care of their basic needs.
+                The Dorcas Scholars Fund was created to honour Dorcas Igbokwe, a woman whose life reflected love, compassion, and a deep commitment to helping others. We continue her legacy by giving young Africans the skills, support, and confidence they need to build sustainable income and take care of their basic needs.
               </p>
               <Link href="/about" className="inline-flex items-center gap-2 mt-8 text-primary font-medium hover:gap-3 transition-all">
                 Read Our Full Story
@@ -126,6 +148,112 @@ export default function Page() {
         </div>
       </section>
 
+      <section className="py-16 md:py-24 bg-muted/50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading eyebrow="Give to the Vision" title="Your Support Changes Lives" description="Sponsor training or provide start-up kits to help youths begin earning with dignity." />
+          <div className="mt-10 flex items-center justify-center">
+            <Link id="pay-now-button" href="/give" className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all gap-2">
+              Pay Now
+              <ArrowRight size={18} />
+            </Link>
+          </div>
+
+          <div className="mt-16 grid md:grid-cols-2 gap-8">
+            {givingOptions.map((option) => (
+              <div key={option.title} className="bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-elevated transition-all group">
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <option.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-display text-xl font-semibold text-foreground mb-2">{option.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed mb-4">{option.description}</p>
+                    <p className="text-sm font-medium text-primary">{option.amount}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading eyebrow="Trade Skills Training" title="Practical Skills That Lead to Income" description="We focus on skills that open immediate doors for work and entrepreneurship." />
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {trades.map((item) => (
+              <div key={item.title} className="bg-card rounded-2xl p-6 shadow-soft border border-border text-center hover:shadow-elevated transition-shadow">
+                <div className="w-14 h-14 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <item.icon className="w-7 h-7 text-primary" />
+                </div>
+                <p className="font-display font-semibold text-foreground">{item.title}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-muted/50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading eyebrow="Impact So Far" title="How Many People We’ve Supported" description="We’re tracking lives transformed through training and starter support." />
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {impactSoFar.map((stat) => (
+              <div key={stat.label} className="bg-card rounded-2xl p-8 shadow-soft border border-border text-center">
+                <p className="font-display text-4xl font-bold text-foreground">{stat.number}</p>
+                <p className="mt-2 text-muted-foreground">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading eyebrow="Beneficiaries" title="People We’ve Supported" description="Real stories of Nigerian youths whose lives are changing through skills and startup support." />
+          <div className="mt-12 grid md:grid-cols-3 gap-8">
+            {[
+              {
+                name: 'Amina',
+                trade: 'Fashion Design',
+                city: 'Kano',
+                story:
+                  'Sponsored tailoring training and a starter sewing machine. Now takes custom orders from her community and supports her siblings.',
+                image: '/image/mum-community-1.jpg',
+              },
+              {
+                name: 'Chinedu',
+                trade: 'Barbing',
+                city: 'Enugu',
+                story:
+                  'Completed a 3-month barbing program and received a starter kit. He runs a small shop near the market and employs one apprentice.',
+                image: '/image/mum-teaching-1.jpg',
+              },
+              {
+                name: 'Bukola',
+                trade: 'UI/UX Design',
+                city: 'Lagos',
+                story:
+                  'Funded an intensive design bootcamp and laptop support. She now freelances for local SMEs, building simple, user-friendly interfaces.',
+                image: '/image/mum-reading-1.jpg',
+              },
+            ].map((b) => (
+              <div key={b.name} className="bg-card rounded-2xl overflow-hidden shadow-soft border border-border">
+                <div className="relative h-48">
+                  <Image src={b.image} alt={b.name} fill className="object-cover" />
+                </div>
+                <div className="p-6">
+                  <p className="font-display font-semibold">{b.name} • {b.city}</p>
+                  <p className="text-sm text-primary mb-2">{b.trade}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{b.story}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 md:py-28 bg-muted/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="What We Do" title="Transforming Lives Through Practical Skills" description="We believe every young person deserves the opportunity to build a sustainable future." />
@@ -156,6 +284,15 @@ export default function Page() {
                 <p className="text-sm text-muted-foreground">{value.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading eyebrow="Donate Online" title="Give Online Securely" description="Use your card or bank account to give instantly." />
+          <div className="mt-8 max-w-2xl mx-auto">
+            <FlutterwaveDonateForm />
           </div>
         </div>
       </section>
