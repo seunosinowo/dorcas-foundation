@@ -1,6 +1,6 @@
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import Link from 'next/link'
-import { ArrowRight, Heart, Target, Users, Lightbulb, Handshake, Scissors, Hammer, Utensils, MonitorSmartphone, Brush, Wrench, Cpu, PenTool, Briefcase, Gift } from 'lucide-react'
+import { ArrowRight, Heart, Target, Users, Lightbulb, Handshake, Scissors, Hammer, Utensils, MonitorSmartphone, Brush, Wrench, Cpu, PenTool, Briefcase, Code, Camera, Palette, PartyPopper, Zap, Car, Sun, ShoppingCart, Sprout, Fish, Phone, Ruler, Shield } from 'lucide-react'
 import Image from 'next/image'
 import FlutterwaveDonateForm from '@/components/payments/FlutterwaveDonateForm'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
@@ -35,29 +35,62 @@ const whatWeDo = [
   },
 ]
 
-const trades = [
-  { icon: PenTool, title: 'UI/UX Design' },
-  { icon: Scissors, title: 'Barbing' },
-  { icon: Utensils, title: 'Catering' },
-  { icon: Hammer, title: 'Carpentry' },
-  { icon: Wrench, title: 'Welding' },
-  { icon: Brush, title: 'Beauty & Makeup' },
-  { icon: MonitorSmartphone, title: 'Digital Skills' },
-  { icon: Cpu, title: 'Computer Literacy' },
+const tradeCategories = [
+  {
+    title: 'Digital Skills',
+    items: [
+      { icon: Cpu, title: 'ICT Support & Computer Maintenance' },
+      { icon: Code, title: 'Web Development' },
+      { icon: Palette, title: 'Graphic Design' },
+      { icon: MonitorSmartphone, title: 'Digital Marketing' },
+      { icon: Camera, title: 'Video Editing & Content Production' },
+      { icon: PenTool, title: 'UI/UX Design' },
+      { icon: Cpu, title: 'Data Analysis (entry-level)' },
+      { icon: Shield, title: 'Cybersecurity (foundational level)' },
+    ],
+  },
+  {
+    title: 'Creative Skills',
+    items: [
+      { icon: Scissors, title: 'Tailoring & Fashion Design' },
+      { icon: Brush, title: 'Beauty & Cosmetology (hair, makeup, nails)' },
+      { icon: Camera, title: 'Photography' },
+      { icon: PartyPopper, title: 'Event Decoration & Planning' },
+      { icon: Utensils, title: 'Baking & Pastry Making' },
+      { icon: Utensils, title: 'Catering & Culinary Skills' },
+    ],
+  },
+  {
+    title: 'Technical Trades',
+    items: [
+      { icon: Wrench, title: 'Plumbing' },
+      { icon: Zap, title: 'Electrical Installation' },
+      { icon: Wrench, title: 'Welding & Fabrication' },
+      { icon: Hammer, title: 'Carpentry' },
+      { icon: Ruler, title: 'Aluminum & POP Fittings' },
+      { icon: Car, title: 'Auto Mechanics / Auto Repair' },
+      { icon: Sun, title: 'Solar Panel Installation & Renewable Energy' },
+    ],
+  },
+  {
+    title: 'Business & Vocational Skills',
+    items: [
+      { icon: ShoppingCart, title: 'Retail & Point-of-Sale Training' },
+      { icon: Briefcase, title: 'Small Business Management' },
+      { icon: Sprout, title: 'Agriculture & Agribusiness' },
+      { icon: Fish, title: 'Fish Farming / Poultry' },
+      { icon: Phone, title: 'Phone Repair & GSM Technician' },
+    ],
+  },
 ]
 
 const impactSoFar = [
-  { number: '25+', label: 'Youths Supported' },
-  { number: '12', label: 'Full Scholarships' },
-  { number: '8', label: 'Start-up Kits Provided' },
+  { number: 'Jan 2026', label: 'Applications Open' },
+  { number: 'Feb 2026', label: 'Cohort Starts' },
+  { number: '4', label: 'Scholarship Categories' },
 ]
 
-const givingOptions = [
-  { icon: Heart, title: 'One-Time Donation', description: 'Make a single contribution to support our programs and help transform lives immediately.', amount: 'Any amount helps' },
-  { icon: Users, title: 'Sponsor a Youth', description: "Fully sponsor one young person's training and startup kit. Track their journey to success.", amount: 'Any amount helps'},
-  { icon: Briefcase, title: 'Corporate Partnership', description: 'Partner with us as a business to create lasting impact in African communities.', amount: 'Custom packages' },
-  { icon: Gift, title: 'In-Kind Donations', description: 'Donate equipment, materials, or services that support our training programs.', amount: 'Various needs' },
-]
+ 
 
 export default function Page() {
   return (
@@ -74,7 +107,7 @@ export default function Page() {
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground leading-tight tracking-tight">
               Dorcas Scholars <span className="text-secondary font-extrabold">Fund</span>
             </h1>
-            <p className="mt-6 text-xl md:text-2xl text-foreground/90 font-medium max-w-3xl mx-auto drop-shadow-md">Empowering African Youth Through Skills & Opportunity</p>
+            <p className="mt-6 text-xl md:text-2xl text-foreground/90 font-medium max-w-3xl mx-auto drop-shadow-md">Providing Trade Skills Scholarships for African Youth</p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Dialog>
                 <DialogTrigger asChild>
@@ -126,13 +159,26 @@ export default function Page() {
 
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 flex items-center justify-center">
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all gap-2">
+                  Give Now
+                  <ArrowRight size={18} />
+                </button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[540px] p-0">
+                <FlutterwaveDonateForm simple />
+              </DialogContent>
+            </Dialog>
+          </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div className="bg-card rounded-2xl p-8 md:p-10 shadow-soft border border-border">
               <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                 <Target className="w-7 h-7 text-primary" />
               </div>
               <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Our Vision</h3>
-              <p className="text-muted-foreground leading-relaxed">To financially empower African youth through trade skills training scholarships.</p>
+              <p className="text-muted-foreground leading-relaxed">To financially empower African youth through trade skills scholarships.</p>
             </div>
 
             <div className="bg-secondary text-secondary-foreground rounded-2xl p-8 md:p-10 shadow-soft">
@@ -140,7 +186,7 @@ export default function Page() {
                 <Heart className="w-7 h-7 text-secondary-foreground" />
               </div>
               <h3 className="font-display text-2xl font-semibold mb-4">Our Mission</h3>
-              <p className="text-secondary-foreground/80 leading-relaxed">To offer scholarships for trade skills training and provide start-up support that helps young Africans launch income-generating businesses.</p>
+              <p className="text-secondary-foreground/80 leading-relaxed">To provide access to trade skills training, startup support, and opportunity; enabling young Africans to earn a livelihood and care for their basic needs.</p>
             </div>
           </div>
 
@@ -172,24 +218,6 @@ export default function Page() {
               </DialogContent>
             </Dialog>
           </div>
-
-          <div className="mt-16 grid md:grid-cols-2 gap-8">
-            {givingOptions.map((option) => (
-              <div key={option.title} className="bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-elevated transition-all group">
-                <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                    <option.icon className="w-7 h-7 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-display text-xl font-semibold text-foreground mb-2">{option.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed mb-4">{option.description}</p>
-                    <p className="text-sm font-medium text-primary">{option.amount}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
           
         </div>
       </section>
@@ -197,13 +225,20 @@ export default function Page() {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Trade Skills Training" title="Practical Skills That Lead to Income" description="We focus on skills that open immediate doors for work and entrepreneurship." />
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {trades.map((item) => (
-              <div key={item.title} className="bg-card rounded-2xl p-6 shadow-soft border border-border text-center hover:shadow-elevated transition-shadow">
-                <div className="w-14 h-14 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                  <item.icon className="w-7 h-7 text-primary" />
+          <div className="mt-12 grid md:grid-cols-2 gap-8">
+            {tradeCategories.map((cat) => (
+              <div key={cat.title} className="bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-elevated transition-shadow">
+                <h3 className="font-display text-xl font-semibold text-foreground mb-4">{cat.title}</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {cat.items.map((item) => (
+                    <div key={item.title} className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                        <item.icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <p className="text-foreground">{item.title}</p>
+                    </div>
+                  ))}
                 </div>
-                <p className="font-display font-semibold text-foreground">{item.title}</p>
               </div>
             ))}
           </div>
@@ -212,7 +247,7 @@ export default function Page() {
 
       <section className="py-16 md:py-24 bg-muted/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Impact So Far" title="How Many People We’ve Supported" description="We’re tracking lives transformed through training and starter support." />
+          <SectionHeading eyebrow="Impact So Far" title="We’re launching our first cohort in Feb 2026" description="Applications open Jan 2026. Cohort begins Feb 2026." />
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {impactSoFar.map((stat) => (
               <div key={stat.label} className="bg-card rounded-2xl p-8 shadow-soft border border-border text-center">

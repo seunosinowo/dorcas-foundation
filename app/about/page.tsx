@@ -78,7 +78,7 @@ export default function Page() {
                 <Target className="w-7 h-7 text-primary" />
               </div>
               <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Our Vision</h3>
-              <p className="text-muted-foreground leading-relaxed text-lg">To financially empower African youth through trade skills training scholarships</p>
+              <p className="text-muted-foreground leading-relaxed text-lg">To financially empower African youth through trade skills scholarships.</p>
             </div>
 
             <div className="bg-primary text-primary-foreground rounded-2xl p-8 md:p-10 shadow-gold">
@@ -86,7 +86,7 @@ export default function Page() {
                 <Heart className="w-7 h-7 text-primary-foreground" />
               </div>
               <h3 className="font-display text-2xl font-semibold mb-4">Our Mission</h3>
-              <p className="text-primary-foreground/90 leading-relaxed text-lg">To offer scholarships for trade skills training and provide start-up support that helps young Africans launch income-generating businesses.</p>
+              <p className="text-primary-foreground/90 leading-relaxed text-lg">To provide access to trade skills training, startup support, and opportunity; enabling young Africans to earn a livelihood and care for their basic needs.</p>
             </div>
           </div>
         </div>
@@ -99,7 +99,7 @@ export default function Page() {
 
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { number: '100,000,000', label: 'Youth Target' },
+                { number: '100,000', label: 'Youth Target' },
                 { number: '5', label: 'Years' },
                 { number: '2,000', label: 'Per Year' },
                 { number: '∞', label: 'Impact' },
@@ -109,6 +109,46 @@ export default function Page() {
                   <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading eyebrow="How It Works" title="From Application to Impact" description="Our simple, transparent process helps youths gain skills, start earning, and build dignified livelihoods." />
+
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <Users className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-display text-xl font-semibold text-foreground mb-2">Apply</h3>
+              <p className="text-muted-foreground">Interested youths submit applications and are assessed based on commitment and need.</p>
+            </div>
+
+            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <Lightbulb className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-display text-xl font-semibold text-foreground mb-2">Train</h3>
+              <p className="text-muted-foreground">Selected beneficiaries receive practical trade skills training with mentorship and guidance.</p>
+            </div>
+
+            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <Handshake className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-display text-xl font-semibold text-foreground mb-2">Support</h3>
+              <p className="text-muted-foreground">Graduates receive startup kits or seed support to begin earning immediately.</p>
+            </div>
+
+            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <Target className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-display text-xl font-semibold text-foreground mb-2">Launch</h3>
+              <p className="text-muted-foreground">Beneficiaries start small businesses, earn with dignity, and grow sustainably.</p>
             </div>
           </div>
         </div>
