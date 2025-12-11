@@ -70,11 +70,11 @@ export default function Page() {
 
         <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
           <div className="animate-fade-in-up max-w-4xl mx-auto">
-            <span className="inline-block text-secondary font-medium tracking-wider uppercase text-sm mb-4">In Loving Memory</span>
+            
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground leading-tight tracking-tight">
               Dorcas Scholars <span className="text-secondary font-extrabold">Fund</span>
             </h1>
-            <p className="mt-6 text-xl md:text-2xl text-muted-foreground font-light max-w-2xl mx-auto">Empowering African Youth Through Skills & Opportunity</p>
+            <p className="mt-6 text-xl md:text-2xl text-foreground/90 font-medium max-w-3xl mx-auto drop-shadow-md">Empowering African Youth Through Skills & Opportunity</p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Dialog>
                 <DialogTrigger asChild>
@@ -84,7 +84,7 @@ export default function Page() {
                   </button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[540px] p-0">
-                  <FlutterwaveDonateForm />
+                  <FlutterwaveDonateForm simple />
                 </DialogContent>
               </Dialog>
               <Link href="/about" className="inline-flex items-center justify-center px-8 py-4 border-2 border-foreground/20 text-foreground font-semibold rounded-full hover:bg-foreground/5 transition-all">
@@ -168,7 +168,7 @@ export default function Page() {
                 </button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[540px] p-0">
-                <FlutterwaveDonateForm />
+                <FlutterwaveDonateForm simple />
               </DialogContent>
             </Dialog>
           </div>
@@ -262,7 +262,7 @@ export default function Page() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Donate Online" title="Give Online Securely" description="Use your card or bank account to give instantly." />
           <div className="mt-8 max-w-2xl mx-auto">
-            <FlutterwaveDonateForm />
+            <FlutterwaveDonateForm simple />
           </div>
         </div>
       </section>

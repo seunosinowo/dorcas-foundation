@@ -27,9 +27,9 @@ declare global {
   }
 }
 
-type Props = { defaultEmail?: string }
+type Props = { defaultEmail?: string; simple?: boolean }
 
-export default function FlutterwaveDonateForm({ defaultEmail = '' }: Props) {
+export default function FlutterwaveDonateForm({ defaultEmail = '', simple = false }: Props) {
   const [email, setEmail] = useState(defaultEmail)
   const [amount, setAmount] = useState('')
   const [name, setName] = useState('')
@@ -62,8 +62,9 @@ export default function FlutterwaveDonateForm({ defaultEmail = '' }: Props) {
 
   const disabled = useMemo(() => {
     const amt = Number(amount)
-    return !email || !publicKey || Number.isNaN(amt) || amt <= 0
-  }, [email, publicKey, amount])
+    const hasEmail = simple ? true : !!email
+    return !hasEmail || !publicKey || Number.isNaN(amt) || amt <= 0
+  }, [email, publicKey, amount, simple])
 
   const startPayment = () => {
     try {
@@ -78,6 +79,7 @@ export default function FlutterwaveDonateForm({ defaultEmail = '' }: Props) {
       }
 
       const txRef = `DSF-${Date.now()}`
+      const emailToUse = email || defaultEmail || 'donor@example.com'
       const paymentOptions = currency === 'NGN' ? 'card,banktransfer,ussd' : 'card'
       window.FlutterwaveCheckout({
         public_key: publicKey,
@@ -85,7 +87,7 @@ export default function FlutterwaveDonateForm({ defaultEmail = '' }: Props) {
         amount: amt,
         currency,
         payment_options: paymentOptions,
-        customer: { email, phone_number: phone, name },
+        customer: { email: emailToUse, phone_number: phone, name },
         customizations: {
           title: 'Dorcas Scholars Fund',
           description: 'Donation',
@@ -106,45 +108,77 @@ export default function FlutterwaveDonateForm({ defaultEmail = '' }: Props) {
   return (
     <div className="bg-card rounded-2xl p-6 shadow-soft border border-border">
       <Script src="https://checkout.flutterwave.com/v3.js" strategy="afterInteractive" />
-      <div className="grid gap-4">
-        <div>
-          <label className="text-sm text-muted-foreground mb-1 block">Full Name</label>
-          <Input placeholder="e.g. Name" value={name} onChange={(e) => setName(e.target.value)} />
+      {simple ? (
+        <div className="grid gap-4">
+          <div className="grid sm:grid-cols-2 gap-3">
+            <div>
+              <label className="text-sm text-muted-foreground mb-1 block">Currency</label>
+              <Select value={currency} onValueChange={setCurrency}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select currency" />
+                </SelectTrigger>
+                <SelectContent className="max-h-60 overflow-y-auto">
+                  {currencies.map((c) => (
+                    <SelectItem key={c} value={c}>
+                      {currencyNames[c] ? `${currencyNames[c]} (${c})` : c}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <label className="text-sm text-muted-foreground mb-1 block">Amount ({currency})</label>
+              <Input type="number" min={1} placeholder="Enter amount" value={amount} onChange={(e) => setAmount(e.target.value)} />
+            </div>
+          </div>
+          <Button disabled={disabled} onClick={startPayment} className="mt-2">
+            Donate Now
+          </Button>
+          {!publicKey && (
+            <p className="text-xs text-destructive/80">Set payment public key in .env.local</p>
+          )}
         </div>
-        <div>
-          <label className="text-sm text-muted-foreground mb-1 block">Email</label>
-          <Input type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
+      ) : (
+        <div className="grid gap-4">
+          <div>
+            <label className="text-sm text-muted-foreground mb-1 block">Full Name</label>
+            <Input placeholder="e.g. Name" value={name} onChange={(e) => setName(e.target.value)} />
+          </div>
+          <div>
+            <label className="text-sm text-muted-foreground mb-1 block">Email</label>
+            <Input type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
+          </div>
+          <div>
+            <label className="text-sm text-muted-foreground mb-1 block">Phone (optional)</label>
+            <Input type="tel" placeholder="08012345678" value={phone} onChange={(e) => setPhone(e.target.value)} />
+          </div>
+          <div>
+            <label className="text-sm text-muted-foreground mb-1 block">Currency</label>
+            <Select value={currency} onValueChange={setCurrency}>
+              <SelectTrigger>
+                <SelectValue placeholder="Select currency" />
+              </SelectTrigger>
+              <SelectContent className="max-h-60 overflow-y-auto">
+                {currencies.map((c) => (
+                  <SelectItem key={c} value={c}>
+                    {currencyNames[c] ? `${currencyNames[c]} (${c})` : c}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div>
+            <label className="text-sm text-muted-foreground mb-1 block">Amount ({currency})</label>
+            <Input type="number" min={100} placeholder="5000" value={amount} onChange={(e) => setAmount(e.target.value)} />
+          </div>
+          <Button disabled={disabled} onClick={startPayment} className="mt-2">
+            Donate Now
+          </Button>
+          {!publicKey && (
+            <p className="text-xs text-destructive/80">Set payment public key in .env.local</p>
+          )}
         </div>
-        <div>
-          <label className="text-sm text-muted-foreground mb-1 block">Phone (optional)</label>
-          <Input type="tel" placeholder="08012345678" value={phone} onChange={(e) => setPhone(e.target.value)} />
-        </div>
-        <div>
-          <label className="text-sm text-muted-foreground mb-1 block">Currency</label>
-          <Select value={currency} onValueChange={setCurrency}>
-            <SelectTrigger>
-              <SelectValue placeholder="Select currency" />
-            </SelectTrigger>
-            <SelectContent className="max-h-60 overflow-y-auto">
-              {currencies.map((c) => (
-                <SelectItem key={c} value={c}>
-                  {currencyNames[c] ? `${currencyNames[c]} (${c})` : c}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-        <div>
-          <label className="text-sm text-muted-foreground mb-1 block">Amount ({currency})</label>
-          <Input type="number" min={100} placeholder="5000" value={amount} onChange={(e) => setAmount(e.target.value)} />
-        </div>
-        <Button disabled={disabled} onClick={startPayment} className="mt-2">
-          Donate Now
-        </Button>
-        {!publicKey && (
-          <p className="text-xs text-destructive/80">Set payment public key in .env.local</p>
-        )}
-      </div>
+      )}
     </div>
   )
 }

@@ -70,7 +70,7 @@ export default function Page() {
             <SectionHeading eyebrow="Donate Online" title="Give Online Securely" description="Use your card or bank account to give instantly." />
 
             <div className="mt-8">
-              <FlutterwaveDonateForm />
+              <FlutterwaveDonateForm simple />
             </div>
 
             

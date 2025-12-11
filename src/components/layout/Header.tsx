@@ -9,7 +9,7 @@ import Image from "next/image";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/gallery", label: "Gallery" },
+  // { href: "/gallery", label: "Gallery" },
   { href: "/give", label: "Give" },
   { href: "/contact", label: "Contact" },
 ];
@@ -25,7 +25,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/image/logo.jpg"
+              src="/image/logo.png"
               alt="Dorcas Scholars Fund logo"
               width={40}
               height={40}
