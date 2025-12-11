@@ -105,7 +105,7 @@ export default function Page() {
           <div className="animate-fade-in-up max-w-4xl mx-auto">
             
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground leading-tight tracking-tight">
-              Dorcas Scholars <span className="text-secondary font-extrabold">Fund</span>
+              Dorcas Scholars Funds <span className="text-secondary font-extrabold"></span>
             </h1>
             <p className="mt-6 text-xl md:text-2xl text-foreground/90 font-medium max-w-3xl mx-auto drop-shadow-md">Providing Trade Skills Scholarships for African Youth</p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -159,20 +159,7 @@ export default function Page() {
 
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 flex items-center justify-center">
-            <Dialog>
-              <DialogTrigger asChild>
-                <button className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all gap-2">
-                  Give Now
-                  <ArrowRight size={18} />
-                </button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[540px] p-0">
-                <FlutterwaveDonateForm simple />
-              </DialogContent>
-            </Dialog>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="bg-card rounded-2xl p-8 md:p-10 shadow-soft border border-border">
               <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                 <Target className="w-7 h-7 text-primary" />
@@ -188,27 +175,20 @@ export default function Page() {
               <h3 className="font-display text-2xl font-semibold mb-4">Our Mission</h3>
               <p className="text-secondary-foreground/80 leading-relaxed">To provide access to trade skills training, startup support, and opportunity; enabling young Africans to earn a livelihood and care for their basic needs.</p>
             </div>
-          </div>
 
-          <div className="mt-16 text-center">
-            <div className="inline-block bg-primary/5 rounded-2xl px-8 py-6 md:px-12 md:py-8">
-              <p className="text-sm uppercase tracking-wider text-primary font-medium mb-2">Our Impact Goal</p>
-              <p className="font-display text-3xl md:text-4xl font-bold text-foreground">
-                Empower <span className="text-primary">100,000</span> African Youths in 5 Years
-              </p>
-              <p className="mt-2 text-muted-foreground">2,000 empowered every year through training and business support</p>
+            <div className="bg-card rounded-2xl p-8 md:p-10 shadow-soft border border-border">
+              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <Target className="w-7 h-7 text-primary" />
+              </div>
+              <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Our Goal</h3>
+              <p className="text-muted-foreground leading-relaxed">Empower 100,000 African youths in 5 years. 2,000 empowered every year through training and business support.</p>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section className="py-16 md:py-24 bg-muted/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Give to the Vision" title="Your Support Changes Lives" description="Sponsor training or provide start-up kits to help youths begin earning with dignity." />
           <div className="mt-10 flex items-center justify-center">
             <Dialog>
               <DialogTrigger asChild>
-                <button id="pay-now-button" className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all gap-2">
+                <button className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all gap-2">
                   Give Now
                   <ArrowRight size={18} />
                 </button>
@@ -218,7 +198,21 @@ export default function Page() {
               </DialogContent>
             </Dialog>
           </div>
-          
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28 bg-muted/50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading eyebrow="What We Do" title="Transforming Lives Through Practical Skills" description="We believe every young person deserves the opportunity to build a sustainable future." />
+          <div className="mt-16 grid md:grid-cols-3 gap-8">
+            {whatWeDo.map((item, index) => (
+              <div key={item.title} className="bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-elevated transition-shadow" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6 text-primary font-display font-bold text-xl">{index + 1}</div>
+                <h3 className="font-display text-xl font-semibold text-foreground mb-3">{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -259,21 +253,60 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-muted/50">
+      <section className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="What We Do" title="Transforming Lives Through Practical Skills" description="We believe every young person deserves the opportunity to build a sustainable future." />
-
-          <div className="mt-16 grid md:grid-cols-3 gap-8">
-            {whatWeDo.map((item, index) => (
-              <div key={item.title} className="bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-elevated transition-shadow" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6 text-primary font-display font-bold text-xl">{index + 1}</div>
-                <h3 className="font-display text-xl font-semibold text-foreground mb-3">{item.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+          <SectionHeading eyebrow="How It Works" title="From Application to Impact" description="Our simple, transparent process helps youths gain skills, start earning, and build dignified livelihoods." />
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <Users className="w-6 h-6 text-primary" />
               </div>
-            ))}
+              <h3 className="font-display text-xl font-semibold text-foreground mb-2">Apply</h3>
+              <p className="text-muted-foreground">Interested youths submit applications and are assessed based on commitment and need.</p>
+            </div>
+            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <Lightbulb className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-display text-xl font-semibold text-foreground mb-2">Train</h3>
+              <p className="text-muted-foreground">Selected beneficiaries receive practical trade skills training with mentorship and guidance.</p>
+            </div>
+            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <Handshake className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-display text-xl font-semibold text-foreground mb-2">Support</h3>
+              <p className="text-muted-foreground">Graduates receive startup kits or seed support to begin earning immediately.</p>
+            </div>
+            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <Target className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-display text-xl font-semibold text-foreground mb-2">Launch</h3>
+              <p className="text-muted-foreground">Beneficiaries start small businesses, earn with dignity, and grow sustainably.</p>
+            </div>
           </div>
         </div>
       </section>
+      <section className="py-16 md:py-24 bg-muted/50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading eyebrow="Give to the Vision" title="" description="" />
+          <div className="mt-10 flex items-center justify-center">
+            <Dialog>
+              <DialogTrigger asChild>
+                <button id="pay-now-button" className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all gap-2">
+                  Give Now
+                  <ArrowRight size={18} />
+                </button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[540px] p-0">
+                <FlutterwaveDonateForm simple />
+              </DialogContent>
+            </Dialog>
+          </div>
+        </div>
+      </section>
+
 
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

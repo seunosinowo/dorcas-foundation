@@ -13,6 +13,24 @@ const values = [
   { icon: Target, title: 'Dignity', description: 'We help youths build lives they can be proud of.' },
 ]
 
+const whatWeDo = [
+  {
+    title: 'Trade Skills Scholarships',
+    description:
+      'We sponsor training in fashion, tech, catering, beauty, carpentry, welding, and other practical skills that lead directly to income.',
+  },
+  {
+    title: 'Business Start-Up Support',
+    description:
+      'We provide equipment, starter kits, or seed funding to help beneficiaries start small businesses after completing their training.',
+  },
+  {
+    title: 'Mentorship & Guidance',
+    description:
+      'We connect youths with mentors who support them in planning, starting, and growing their businesses.',
+  },
+]
+
 export default function Page() {
   return (
     <>
@@ -23,7 +41,7 @@ export default function Page() {
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-tight">
               Honouring a Life of <span className="text-primary">Love & Service</span>
             </h1>
-            <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto">The Dorcas Scholars Fund continues the legacy of a woman who dedicated her life to uplifting others.</p>
+            <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto">The Dorkers Scholars Fund continues the legacy of a woman who dedicated her life to uplifting others.</p>
           </div>
         </div>
       </section>
@@ -43,7 +61,7 @@ export default function Page() {
             <div>
               <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground leading-tight">About the Foundation</h2>
               <div className="mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
-                <p>The Dorcas Scholars Fund was created to honour Dorcas Igbokwe, a woman whose life reflected love, compassion, and a deep commitment to helping others.</p>
+                <p>The Dorkers Scholars Fund was created to honour Dorcas Igbokwe, a woman whose life reflected love, compassion, and a deep commitment to helping others.</p>
                 <p>We continue her legacy by giving young Africans the skills, support, and confidence they need to build sustainable income and take care of their basic needs.</p>
               </div>
             </div>
@@ -72,7 +90,7 @@ export default function Page() {
 
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="bg-card rounded-2xl p-8 md:p-10 shadow-soft border border-border">
               <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                 <Target className="w-7 h-7 text-primary" />
@@ -88,6 +106,29 @@ export default function Page() {
               <h3 className="font-display text-2xl font-semibold mb-4">Our Mission</h3>
               <p className="text-primary-foreground/90 leading-relaxed text-lg">To provide access to trade skills training, startup support, and opportunity; enabling young Africans to earn a livelihood and care for their basic needs.</p>
             </div>
+
+            <div className="bg-card rounded-2xl p-8 md:p-10 shadow-soft border border-border">
+              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                <Target className="w-7 h-7 text-primary" />
+              </div>
+              <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Our Goal</h3>
+              <p className="text-muted-foreground leading-relaxed text-lg">Empower 100,000 African youths in 5 years. 2,000 empowered every year through training and business support.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28 bg-muted/50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading eyebrow="What We Do" title="Transforming Lives Through Practical Skills" description="We believe every young person deserves the opportunity to build a sustainable future." />
+          <div className="mt-16 grid md:grid-cols-3 gap-8">
+            {whatWeDo.map((item, index) => (
+              <div key={item.title} className="bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-elevated transition-shadow" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6 text-primary font-display font-bold text-xl">{index + 1}</div>
+                <h3 className="font-display text-xl font-semibold text-foreground mb-3">{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -116,48 +157,8 @@ export default function Page() {
 
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="How It Works" title="From Application to Impact" description="Our simple, transparent process helps youths gain skills, start earning, and build dignified livelihoods." />
-
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                <Users className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-2">Apply</h3>
-              <p className="text-muted-foreground">Interested youths submit applications and are assessed based on commitment and need.</p>
-            </div>
-
-            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                <Lightbulb className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-2">Train</h3>
-              <p className="text-muted-foreground">Selected beneficiaries receive practical trade skills training with mentorship and guidance.</p>
-            </div>
-
-            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                <Handshake className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-2">Support</h3>
-              <p className="text-muted-foreground">Graduates receive startup kits or seed support to begin earning immediately.</p>
-            </div>
-
-            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                <Target className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-2">Launch</h3>
-              <p className="text-muted-foreground">Beneficiaries start small businesses, earn with dignity, and grow sustainably.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 md:py-28">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Our Values" title="The Principles That Guide Us" description="These values reflect the life and spirit of Dorcas Scholars Fund." />
-
+          <SectionHeading eyebrow="Our Values" title="The Principles That Guide Us" description="These values reflect the life and spirit of Dorkers Scholars Fund." />
+ 
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             {values.map((value) => (
               <div key={value.title} className="bg-card rounded-2xl p-6 shadow-soft border border-border text-center hover:shadow-elevated transition-shadow">
