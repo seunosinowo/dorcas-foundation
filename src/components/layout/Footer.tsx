@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Heart, Mail, MapPin, Phone } from "lucide-react";
 
 export function Footer() {
@@ -9,18 +10,18 @@ export function Footer() {
           {/* About */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                <span className="font-display text-primary-foreground text-lg font-bold">D</span>
-              </div>
-              <div>
-                <span className="font-display text-lg font-semibold">
-                  Dorcas Scholars Fund
-                </span>
+              <div className="bg-white rounded-lg p-2">
+                <Image
+                  src="/image/logo.png"
+                  alt="Dorcas Scholars Fund logo"
+                  width={120}
+                  height={100}
+                  className="object-contain"
+                />
               </div>
             </div>
             <p className="text-secondary-foreground/80 text-sm leading-relaxed max-w-md">
-              Empowering African youth through skills training and opportunity. 
-              Continuing the legacy of love and compassion that Dorcas Igbokwe lived every day.
+              Finacially Empowering African youth with trade skills scholarships. Continuing the legacy of love and compassion that Dorcas Igbokwe lived every day.
             </p>
             <p className="mt-4 text-sm text-secondary-foreground/60 flex items-center gap-1">
               Made with <Heart size={14} className="text-accent fill-accent" /> in her memory
@@ -34,8 +35,8 @@ export function Footer() {
               {[
                 { href: "/", label: "Home" },
                 { href: "/about", label: "About Us" },
-                { href: "/gallery", label: "Gallery" },
                 { href: "/give", label: "Donate" },
+                { href: "/partner", label: "Become a Partner" },
                 { href: "/contact", label: "Contact" },
               ].map((link) => (
                 <li key={link.href}>
@@ -66,8 +67,8 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2 text-sm text-secondary-foreground/70">
                 <Phone size={16} className="shrink-0" />
-                <a href="tel:+234XXXXXXXXXX" className="hover:text-secondary-foreground transition-colors">
-                  +234 XXX XXX XXXX
+                <a href="tel:+2348056679806" className="hover:text-secondary-foreground transition-colors">
+                  +234 805 667 9806
                 </a>
               </li>
             </ul>

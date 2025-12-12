@@ -1,10 +1,9 @@
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import Link from 'next/link'
-import { ArrowRight, Heart, Target, Users, Lightbulb, Handshake, Scissors, Hammer, Utensils, MonitorSmartphone, Brush, Wrench, Cpu, PenTool, Briefcase, Code, Camera, Palette, PartyPopper, Zap, Car, Sun, ShoppingCart, Sprout, Fish, Phone, Ruler, Shield } from 'lucide-react'
+import { ArrowRight, Heart, Target, Users, Lightbulb, Handshake, Scissors, Hammer, Utensils, MonitorSmartphone, Brush, Wrench, Cpu, PenTool, Code, Camera, Palette, PartyPopper, Zap, Car, Sun, Ruler, Shield, MessageCircle } from 'lucide-react'
 import Image from 'next/image'
 import FlutterwaveDonateForm from '@/components/payments/FlutterwaveDonateForm'
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
-const mumPortrait1 = '/mum-portrait-1.jpg'
 const mumCommunity1 = '/image/mum_6.jpg'
 const mumTeaching1 = '/image/mum-teaching-1.jpg'
 const mumPortrait2 = '/image/mum_15.jpg'
@@ -24,9 +23,9 @@ const whatWeDo = [
       'We sponsor training in fashion, tech, catering, beauty, carpentry, welding, and other practical skills that lead directly to income.',
   },
   {
-    title: 'Business Start-Up Support',
+    title: 'Job & Business Start-Up Support',
     description:
-      'We provide equipment, starter kits, or seed funding to help beneficiaries start small businesses after completing their training.',
+      'We provide job opportunities/equipment, starter kits, or seed funding to help beneficiaries start small businesses after completing their training.',
   },
   {
     title: 'Mentorship & Guidance',
@@ -37,7 +36,7 @@ const whatWeDo = [
 
 const tradeCategories = [
   {
-    title: 'Digital Skills',
+    title: 'Digital Trades',
     items: [
       { icon: Cpu, title: 'ICT Support & Computer Maintenance' },
       { icon: Code, title: 'Web Development' },
@@ -45,19 +44,21 @@ const tradeCategories = [
       { icon: MonitorSmartphone, title: 'Digital Marketing' },
       { icon: Camera, title: 'Video Editing & Content Production' },
       { icon: PenTool, title: 'UI/UX Design' },
-      { icon: Cpu, title: 'Data Analysis (entry-level)' },
-      { icon: Shield, title: 'Cybersecurity (foundational level)' },
+      { icon: Cpu, title: 'Data Analysis' },
+      { icon: Cpu, title: 'Computer Networking Essentials' },
     ],
   },
   {
-    title: 'Creative Skills',
+    title: 'Creative Trades',
     items: [
       { icon: Scissors, title: 'Tailoring & Fashion Design' },
-      { icon: Brush, title: 'Beauty & Cosmetology (hair, makeup, nails)' },
-      { icon: Camera, title: 'Photography' },
+      { icon: Brush, title: 'Beauty & Cosmetology (hair, makeup, nails. etc)' },
+      { icon: Camera, title: 'Photography & Videography' },
       { icon: PartyPopper, title: 'Event Decoration & Planning' },
       { icon: Utensils, title: 'Baking & Pastry Making' },
       { icon: Utensils, title: 'Catering & Culinary Skills' },
+      { icon: Palette, title: 'Jewelry & Accessories Design' },
+      { icon: Brush, title: 'Interior Decoration' },
     ],
   },
   {
@@ -70,16 +71,17 @@ const tradeCategories = [
       { icon: Ruler, title: 'Aluminum & POP Fittings' },
       { icon: Car, title: 'Auto Mechanics / Auto Repair' },
       { icon: Sun, title: 'Solar Panel Installation & Renewable Energy' },
-    ],
-  },
-  {
-    title: 'Business & Vocational Skills',
-    items: [
-      { icon: ShoppingCart, title: 'Retail & Point-of-Sale Training' },
-      { icon: Briefcase, title: 'Small Business Management' },
-      { icon: Sprout, title: 'Agriculture & Agribusiness' },
-      { icon: Fish, title: 'Fish Farming / Poultry' },
-      { icon: Phone, title: 'Phone Repair & GSM Technician' },
+      { icon: Zap, title: 'Generator Repair & Maintenance' },
+      { icon: Wrench, title: 'Refrigeration Systems' },
+      { icon: Hammer, title: 'Masonry & Tiling' },
+      { icon: Brush, title: 'Painting & Finishing' },
+      { icon: Shield, title: 'CCTV & Security Systems' },
+      { icon: Zap, title: 'Inverter Installation & Maintenance' },
+      { icon: Wrench, title: 'Metal Gates & Window Frames' },
+      { icon: Wrench, title: 'Borehole Pump Installation' },
+      { icon: Ruler, title: 'Cable Trunking & House Wiring' },
+      { icon: MonitorSmartphone, title: 'Smartphone & Device Repair' },
+      { icon: Wrench, title: 'Industrial Machine Maintenance' },
     ],
   },
 ]
@@ -87,7 +89,7 @@ const tradeCategories = [
 const impactSoFar = [
   { number: 'Jan 2026', label: 'Applications Open' },
   { number: 'Feb 2026', label: 'Cohort Starts' },
-  { number: '4', label: 'Scholarship Categories' },
+  { number: '34', label: 'Trade Scholarships' },
 ]
 
  
@@ -105,24 +107,20 @@ export default function Page() {
           <div className="animate-fade-in-up max-w-4xl mx-auto">
             
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground leading-tight tracking-tight">
-              Dorcas Scholars Funds <span className="text-secondary font-extrabold"></span>
+              Dorcas Scholars Fund <span className="text-secondary font-extrabold"></span>
             </h1>
-            <p className="mt-6 text-xl md:text-2xl text-foreground/90 font-medium max-w-3xl mx-auto drop-shadow-md">Providing Trade Skills Scholarships for African Youth</p>
+            <p className="mt-6 text-xl md:text-2xl text-foreground/90 font-medium max-w-3xl mx-auto drop-shadow-md">Trade Skills Scholarships for African Youth</p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Dialog>
                 <DialogTrigger asChild>
                   <button className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all shadow-elevated hover:shadow-lg gap-2">
                     Support Our Mission
-                    <ArrowRight size={18} />
                   </button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[540px] p-0">
                   <FlutterwaveDonateForm simple />
                 </DialogContent>
               </Dialog>
-              <Link href="/about" className="inline-flex items-center justify-center px-8 py-4 border-2 border-foreground/20 text-foreground font-semibold rounded-full hover:bg-foreground/5 transition-all">
-                Learn More
-              </Link>
             </div>
           </div>
         </div>
@@ -160,37 +158,36 @@ export default function Page() {
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="bg-card rounded-2xl p-8 md:p-10 shadow-soft border border-border">
-              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+            <div className="bg-secondary text-secondary-foreground rounded-2xl p-8 md:p-10 shadow-soft">
+              <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-6">
                 <Target className="w-7 h-7 text-primary" />
               </div>
-              <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Our Vision</h3>
-              <p className="text-muted-foreground leading-relaxed">To financially empower African youth through trade skills scholarships.</p>
+              <h3 className="font-display text-2xl font-semibold mb-4">Our Vision</h3>
+              <p className="text-secondary-foreground/80 leading-relaxed text-lg">To financially empower African youth through trade skills scholarships.</p>
             </div>
 
             <div className="bg-secondary text-secondary-foreground rounded-2xl p-8 md:p-10 shadow-soft">
-              <div className="w-14 h-14 rounded-full bg-secondary-foreground/10 flex items-center justify-center mb-6">
-                <Heart className="w-7 h-7 text-secondary-foreground" />
+              <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-6">
+                <Heart className="w-7 h-7 text-primary" />
               </div>
               <h3 className="font-display text-2xl font-semibold mb-4">Our Mission</h3>
-              <p className="text-secondary-foreground/80 leading-relaxed">To provide access to trade skills training, startup support, and opportunity; enabling young Africans to earn a livelihood and care for their basic needs.</p>
+              <p className="text-secondary-foreground/80 leading-relaxed text-lg">To provide access to trade skills training, startup support, and opportunity; enabling young Africans to earn a livelihood and care for their basic needs.</p>
             </div>
 
-            <div className="bg-card rounded-2xl p-8 md:p-10 shadow-soft border border-border">
-              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+            <div className="bg-secondary text-secondary-foreground rounded-2xl p-8 md:p-10 shadow-soft">
+              <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-6">
                 <Target className="w-7 h-7 text-primary" />
               </div>
-              <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Our Goal</h3>
-              <p className="text-muted-foreground leading-relaxed">Empower 100,000 African youths in 5 years. 2,000 empowered every year through training and business support.</p>
+              <h3 className="font-display text-2xl font-semibold mb-4">Our Goal</h3>
+              <p className="text-secondary-foreground/80 leading-relaxed text-lg">Empower 100,000 African youth in 5 years. 2,000 empowered every year through trade skills training and business support.</p>
             </div>
           </div>
 
           <div className="mt-10 flex items-center justify-center">
             <Dialog>
               <DialogTrigger asChild>
-                <button className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all gap-2">
-                  Give Now
-                  <ArrowRight size={18} />
+                <button className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-full hover:bg-primary/90 transition-all">
+                  Support Our Mission
                 </button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[540px] p-0">
@@ -218,12 +215,15 @@ export default function Page() {
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Trade Skills Training" title="Practical Skills That Lead to Income" description="We focus on skills that open immediate doors for work and entrepreneurship." />
+          <SectionHeading eyebrow="Trade Skills Training" title="Some of the Trade Skills we Support" description="We focus on trade skills that open immediate doors for work and entrepreneurship." />
           <div className="mt-12 grid md:grid-cols-2 gap-8">
             {tradeCategories.map((cat) => (
-              <div key={cat.title} className="bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-elevated transition-shadow">
+              <div
+                key={cat.title}
+                className={`bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-elevated transition-shadow ${cat.title === 'Technical Trades' ? 'md:col-span-2' : ''}`}
+              >
                 <h3 className="font-display text-xl font-semibold text-foreground mb-4">{cat.title}</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className={`grid grid-cols-1 sm:grid-cols-2 gap-4 ${cat.title === 'Technical Trades' ? 'lg:grid-cols-3' : ''}`}>
                   {cat.items.map((item) => (
                     <div key={item.title} className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
@@ -241,7 +241,7 @@ export default function Page() {
 
       <section className="py-16 md:py-24 bg-muted/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Impact So Far" title="We’re launching our first cohort in Feb 2026" description="Applications open Jan 2026. Cohort begins Feb 2026." />
+          <SectionHeading eyebrow="Impact So Far" title="We’re launching our first cohort in Feb 2026" description="Applications are now open on a rolling basis" />
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {impactSoFar.map((stat) => (
               <div key={stat.label} className="bg-card rounded-2xl p-8 shadow-soft border border-border text-center">
@@ -249,6 +249,21 @@ export default function Page() {
                 <p className="mt-2 text-muted-foreground">{stat.label}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="/contact" className="inline-flex items-center text-primary font-semibold hover:underline hover:underline-offset-4">
+              Apply Now
+              <ArrowRight size={16} className="ml-2" />
+            </Link>
+            <a
+              href="https://wa.me/2348056679806"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-green-500 text-white font-semibold hover:bg-green-600 transition-colors shadow-soft"
+            >
+              <MessageCircle size={16} className="mr-2" />
+              WhatsApp
+            </a>
           </div>
         </div>
       </section>
@@ -269,14 +284,14 @@ export default function Page() {
                 <Lightbulb className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-display text-xl font-semibold text-foreground mb-2">Train</h3>
-              <p className="text-muted-foreground">Selected beneficiaries receive practical trade skills training with mentorship and guidance.</p>
+              <p className="text-muted-foreground">Selected beneficiaries receive practical trade skills training with mentorship from our partners.</p>
             </div>
             <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                 <Handshake className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-display text-xl font-semibold text-foreground mb-2">Support</h3>
-              <p className="text-muted-foreground">Graduates receive startup kits or seed support to begin earning immediately.</p>
+              <p className="text-muted-foreground">Graduates receive support or seed support from our partners to begin earning immediately.</p>
             </div>
             <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
@@ -286,19 +301,16 @@ export default function Page() {
               <p className="text-muted-foreground">Beneficiaries start small businesses, earn with dignity, and grow sustainably.</p>
             </div>
           </div>
-        </div>
-      </section>
-      <section className="py-16 md:py-24 bg-muted/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Give to the Vision" title="" description="" />
           <div className="mt-10 flex items-center justify-center">
+            
             <Dialog>
-              <DialogTrigger asChild>
-                <button id="pay-now-button" className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all gap-2">
-                  Give Now
-                  <ArrowRight size={18} />
-                </button>
-              </DialogTrigger>
+              <Link
+              href="/apply"
+              className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-primary-foreground font-semibold rounded-full hover:bg-primary/90 transition-all gap-2"
+            >
+              Apply Now
+            </Link>
+              
               <DialogContent className="sm:max-w-[540px] p-0">
                 <FlutterwaveDonateForm simple />
               </DialogContent>
@@ -307,8 +319,7 @@ export default function Page() {
         </div>
       </section>
 
-
-      <section className="py-20 md:py-28">
+      <section className="py-2 md:py-2">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Our Values" title="The Principles That Guide Us" description="These values reflect the life and spirit of Dorcas Igbokwe." />
 
@@ -328,7 +339,7 @@ export default function Page() {
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Donate Online" title="Give Online Securely" description="Use your card or bank account to give instantly." />
+          <SectionHeading title="Give Online Securely" description="Use your card or bank account to give instantly." />
           <div className="mt-8 max-w-2xl mx-auto">
             <FlutterwaveDonateForm simple />
           </div>

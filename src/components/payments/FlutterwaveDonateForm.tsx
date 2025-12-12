@@ -132,7 +132,7 @@ export default function FlutterwaveDonateForm({ defaultEmail = '', simple = fals
             </div>
           </div>
           <Button disabled={disabled} onClick={startPayment} className="mt-2">
-            Donate Now
+            Give Now
           </Button>
           {!publicKey && (
             <p className="text-xs text-destructive/80">Set payment public key in .env.local</p>
@@ -172,7 +172,7 @@ export default function FlutterwaveDonateForm({ defaultEmail = '', simple = fals
             <Input type="number" min={100} placeholder="5000" value={amount} onChange={(e) => setAmount(e.target.value)} />
           </div>
           <Button disabled={disabled} onClick={startPayment} className="mt-2">
-            Donate Now
+            Give Now
           </Button>
           {!publicKey && (
             <p className="text-xs text-destructive/80">Set payment public key in .env.local</p>

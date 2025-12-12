@@ -3,6 +3,7 @@ import { Heart, Users, Briefcase, Gift, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import FlutterwaveDonateForm from '@/components/payments/FlutterwaveDonateForm'
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 const mumTeaching1 = '/mum-teaching-1.jpg'
 
 const givingOptions = [
@@ -34,7 +35,7 @@ export default function Page() {
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-background leading-tight">
               Give the Gift of <span className="text-primary">Opportunity</span>
             </h1>
-            <p className="mt-6 text-xl text-background/80 max-w-xl">Your generosity empowers young Africans to build sustainable futures. Every contribution creates ripples of change.</p>
+            <p className="mt-6 text-xl text-background/80 max-w-xl">Join us in empowering young Africans financially by helping them learn a trade skill.</p>
           </div>
         </div>
       </section>
@@ -53,7 +54,32 @@ export default function Page() {
                   <div className="flex-1">
                     <h3 className="font-display text-xl font-semibold text-foreground mb-2">{option.title}</h3>
                     <p className="text-muted-foreground leading-relaxed mb-4">{option.description}</p>
+                    {option.title === 'Corporate Partnership' ? (
+                      <a href="mailto:contact@dorcasigbokwefoundation.org" className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
+                        Mail Us
+                      </a>
+                    ) : option.title === 'In-Kind Donations' ? (
+                      <a href="https://wa.me/2348056679806" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
+                        WhatsApp Us
+                      </a>
+                    ) : (
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <button className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
+                            Give Now
+                          </button>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-[540px] p-0">
+                          <FlutterwaveDonateForm simple />
+                        </DialogContent>
+                        
+                      </Dialog>
+                    )}
+
                     
+
+
+
                   </div>
                 </div>
               </div>
@@ -64,10 +90,10 @@ export default function Page() {
 
       
 
-      <section className="py-20 md:py-28">
+      <section className="py-4 md:py-4">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto">
-            <SectionHeading eyebrow="Donate Online" title="Give Online Securely" description="Use your card or bank account to give instantly." />
+            <SectionHeading title="Give Online Securely" description="Use your card or bank account to give instantly." />
 
             <div className="mt-8">
               <FlutterwaveDonateForm simple />
@@ -76,7 +102,7 @@ export default function Page() {
             
 
             <div className="mt-8 text-center">
-              <p className="text-muted-foreground mb-4">Have questions about donating?</p>
+              <p className="text-muted-foreground mb-4">Have questions about giving?</p>
               <Link href="/contact" className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
                 Contact Us
                 <ArrowRight size={18} />
@@ -86,7 +112,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-primary text-primary-foreground">
+      <section className="py-20 md:py-28 bg-primary text-primary-foreground mt-5">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-display text-3xl md:text-4xl font-semibold mb-6">Other Ways to Help</h2>

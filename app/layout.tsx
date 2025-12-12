@@ -4,7 +4,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 
 export const metadata = {
-  title: 'Financially Empowering African Youth through Trade Skills Scholarships',
+  title: 'Dorcas Scholars Funds - Trade Skills Scholarships for African Youth',
   description:
     'The Dorcas Scholars Fund empowers African youth through trade skills training and business startup support.',
 };

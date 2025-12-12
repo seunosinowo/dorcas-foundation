@@ -2,7 +2,7 @@ import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Heart, Target, Users, Lightbulb, Handshake } from 'lucide-react'
 import Image from 'next/image'
 const mumPortrait2 = '/image/mum_6.jpg'
-const mumPrayer1 = '/image/mum_15.jpg'
+const mumPrayer1 = '/image/mum_5.jpg'
 const mumFamily1 = '/mum-family-1.jpg'
 
 const values = [
@@ -41,7 +41,7 @@ export default function Page() {
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-tight">
               Honouring a Life of <span className="text-primary">Love & Service</span>
             </h1>
-            <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto">The Dorkers Scholars Fund continues the legacy of a woman who dedicated her life to uplifting others.</p>
+            <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto">The Dorcas Scholars Fund continues the legacy of a woman who dedicated her life to uplifting others.</p>
           </div>
         </div>
       </section>
@@ -51,17 +51,17 @@ export default function Page() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="relative">
               <div className="rounded-2xl overflow-hidden shadow-elevated relative h-[500px]">
-                <Image src={mumPrayer1} alt="Dorcas Igbokwe" fill className="object-cover object-top " />
+                <Image src={mumPortrait2} alt="Dorcas Igbokwe" fill className="object-cover object-top " />
               </div>
               <div className="absolute -bottom-6 -right-6 w-40 h-40 rounded-2xl overflow-hidden shadow-gold border-4 border-background hidden lg:block">
-                <Image src={mumPortrait2} alt="Dorcas in prayer" fill className="object-cover" />
+                <Image src={mumPrayer1} alt="Dorcas in prayer" fill className="object-cover" />
               </div>
             </div>
 
             <div>
               <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground leading-tight">About the Foundation</h2>
               <div className="mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
-                <p>The Dorkers Scholars Fund was created to honour Dorcas Igbokwe, a woman whose life reflected love, compassion, and a deep commitment to helping others.</p>
+                <p>The Dorcas Scholars Fund was created to honour Dorcas Igbokwe, a woman whose life reflected love, compassion, and a deep commitment to helping others.</p>
                 <p>We continue her legacy by giving young Africans the skills, support, and confidence they need to build sustainable income and take care of their basic needs.</p>
               </div>
             </div>
@@ -96,7 +96,7 @@ export default function Page() {
                 <Target className="w-7 h-7 text-primary" />
               </div>
               <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Our Vision</h3>
-              <p className="text-muted-foreground leading-relaxed text-lg">To financially empower African youth through trade skills scholarships.</p>
+              <p className="text-muted-foreground leading-relaxed">To financially empower African youth through trade skills scholarships.</p>
             </div>
 
             <div className="bg-primary text-primary-foreground rounded-2xl p-8 md:p-10 shadow-gold">
@@ -104,7 +104,7 @@ export default function Page() {
                 <Heart className="w-7 h-7 text-primary-foreground" />
               </div>
               <h3 className="font-display text-2xl font-semibold mb-4">Our Mission</h3>
-              <p className="text-primary-foreground/90 leading-relaxed text-lg">To provide access to trade skills training, startup support, and opportunity; enabling young Africans to earn a livelihood and care for their basic needs.</p>
+              <p className="text-primary-foreground/90 leading-relaxed">To provide access to trade skills training, startup support, and opportunity; enabling young Africans to earn a livelihood and care for their basic needs.</p>
             </div>
 
             <div className="bg-card rounded-2xl p-8 md:p-10 shadow-soft border border-border">
@@ -112,7 +112,7 @@ export default function Page() {
                 <Target className="w-7 h-7 text-primary" />
               </div>
               <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Our Goal</h3>
-              <p className="text-muted-foreground leading-relaxed text-lg">Empower 100,000 African youths in 5 years. 2,000 empowered every year through training and business support.</p>
+              <p className="text-muted-foreground leading-relaxed">Empower 100,000 African youth in 5 years. 2,000 empowered every year through trade skills training and business support.</p>
             </div>
           </div>
         </div>
