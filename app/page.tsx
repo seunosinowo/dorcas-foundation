@@ -18,25 +18,38 @@ const values = [
 
 const whatWeDo = [
   {
-    title: 'Trade Skills Scholarships',
+    title: 'Funding Academic Scholarships',
     description:
-      'We sponsor training in fashion, tech, catering, beauty, carpentry, welding, and other practical skills that lead directly to income.',
+      'We provide scholarships for formal education, helping young Africans access university, polytechnic, and other academic opportunities.',
   },
   {
-    title: 'Job & Business Start-Up Support',
+    title: 'Supporting Trade Skills Scholarships',
     description:
-      'We provide job opportunities/equipment, starter kits, or seed funding to help beneficiaries start small businesses after completing their training.',
+      'We sponsor practical, income-generating skills training in areas like fashion, tech, catering, carpentry, and more.',
   },
   {
-    title: 'Mentorship & Guidance',
+    title: 'Connecting Scholars to Opportunities',
     description:
-      'We connect youths with mentors who support them in planning, starting, and growing their businesses.',
+      'We link scholars to mentorship, startup support, and job opportunities that help them start earning and building their future.',
   },
 ]
 
 const tradeCategories = [
   {
-    title: 'Digital Trades',
+    title: 'Academic Disciplines',
+    items: [
+      { icon: Lightbulb, title: 'Science & Technology' },
+      { icon: PenTool, title: 'Arts & Humanities' },
+      { icon: Cpu, title: 'Engineering' },
+      { icon: Users, title: 'Social Sciences' },
+      { icon: Shield, title: 'Law & Security Studies' },
+      { icon: Heart, title: 'Health & Medical Sciences' },
+      { icon: Code, title: 'Computer Science' },
+      { icon: Brush, title: 'Creative Arts' },
+    ],
+  },
+  {
+    title: 'Digital & Creative Trades',
     items: [
       { icon: Cpu, title: 'ICT Support & Computer Maintenance' },
       { icon: Code, title: 'Web Development' },
@@ -44,15 +57,6 @@ const tradeCategories = [
       { icon: MonitorSmartphone, title: 'Digital Marketing' },
       { icon: Camera, title: 'Video Editing & Content Production' },
       { icon: PenTool, title: 'UI/UX Design' },
-      { icon: Cpu, title: 'Data Analysis' },
-      { icon: Cpu, title: 'Computer Networking Essentials' },
-    ],
-  },
-  {
-    title: 'Creative Trades',
-    items: [
-      { icon: Scissors, title: 'Tailoring & Fashion Design' },
-      { icon: Brush, title: 'Beauty & Cosmetology (hair, makeup, nails. etc)' },
       { icon: Camera, title: 'Photography & Videography' },
       { icon: PartyPopper, title: 'Event Decoration & Planning' },
       { icon: Utensils, title: 'Baking & Pastry Making' },
@@ -87,9 +91,9 @@ const tradeCategories = [
 ]
 
 const impactSoFar = [
-  { number: 'Jan 2026', label: 'Applications Open' },
-  { number: 'Feb 2026', label: 'Cohort Starts' },
-  { number: '34', label: 'Trade Scholarships' },
+  { number: '20', label: 'Scholarships given' },
+  { number: '2', label: 'Partners institutions' },
+  { number: '100,000', label: 'Scholarships targeted' },
 ]
 
  
@@ -109,7 +113,7 @@ export default function Page() {
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground leading-tight tracking-tight">
               Dorcas Scholars Fund <span className="text-secondary font-extrabold"></span>
             </h1>
-            <p className="mt-6 text-xl md:text-2xl text-foreground/90 font-medium max-w-3xl mx-auto drop-shadow-md">Trade Skills Scholarships for African Youth</p>
+            <p className="mt-6 text-xl md:text-2xl text-foreground/90 font-medium max-w-3xl mx-auto drop-shadow-md">Investing in learning. Providing Scholarships.</p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Dialog>
                 <DialogTrigger asChild>
@@ -163,7 +167,7 @@ export default function Page() {
                 <Target className="w-7 h-7 text-primary" />
               </div>
               <h3 className="font-display text-2xl font-semibold mb-4">Our Vision</h3>
-              <p className="text-secondary-foreground/80 leading-relaxed text-lg">To financially empower African youth through trade skills scholarships.</p>
+              <p className="text-secondary-foreground/80 leading-relaxed text-lg">A future where African youth have access to learning opportunities that enable them to earn, thrive, and live with dignity.</p>
             </div>
 
             <div className="bg-secondary text-secondary-foreground rounded-2xl p-8 md:p-10 shadow-soft">
@@ -171,7 +175,7 @@ export default function Page() {
                 <Heart className="w-7 h-7 text-primary" />
               </div>
               <h3 className="font-display text-2xl font-semibold mb-4">Our Mission</h3>
-              <p className="text-secondary-foreground/80 leading-relaxed text-lg">To provide access to trade skills training, startup support, and opportunity; enabling young Africans to earn a livelihood and care for their basic needs.</p>
+              <p className="text-secondary-foreground/80 leading-relaxed text-lg">To invest in learning by providing academic and trade scholarships that empower African youth to pursue their passions, build valuable skills, and achieve financial independence.</p>
             </div>
 
             <div className="bg-secondary text-secondary-foreground rounded-2xl p-8 md:p-10 shadow-soft">
@@ -179,7 +183,7 @@ export default function Page() {
                 <Target className="w-7 h-7 text-primary" />
               </div>
               <h3 className="font-display text-2xl font-semibold mb-4">Our Goal</h3>
-              <p className="text-secondary-foreground/80 leading-relaxed text-lg">Empower 100,000 African youth in 5 years. 2,000 empowered every year through trade skills training and business support.</p>
+              <p className="text-secondary-foreground/80 leading-relaxed text-lg">To empower 100,000 African youth from low-income communities through academic and trade scholarships.</p>
             </div>
           </div>
 
@@ -200,7 +204,7 @@ export default function Page() {
 
       <section className="py-20 md:py-28 bg-muted/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="What We Do" title="Transforming Lives Through Practical Skills" description="We believe every young person deserves the opportunity to build a sustainable future." />
+          <SectionHeading eyebrow="" title="What we do" description="We believe every young person deserves the opportunity to build a sustainable future—whether through academics or practical skills." />
           <div className="mt-16 grid md:grid-cols-3 gap-8">
             {whatWeDo.map((item, index) => (
               <div key={item.title} className="bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-elevated transition-shadow" style={{ animationDelay: `${index * 0.1}s` }}>
@@ -215,7 +219,7 @@ export default function Page() {
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Trade Skills Training" title="Some of the Trade Skills we Support" description="We focus on trade skills that open immediate doors for work and entrepreneurship." />
+          <SectionHeading eyebrow="Academic & Trade Skills" title="Some of the Academic & Trade Areas We Support" description="We focus on both academic disciplines and trade skills that open doors for work, entrepreneurship, and lifelong learning." />
           <div className="mt-12 grid md:grid-cols-2 gap-8">
             {tradeCategories.map((cat) => (
               <div
@@ -277,7 +281,7 @@ export default function Page() {
                 <Users className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-display text-xl font-semibold text-foreground mb-2">Apply</h3>
-              <p className="text-muted-foreground">Interested youths submit applications and are assessed based on commitment and need.</p>
+              <p className="text-muted-foreground">Interested youths submit applications and are assessed based on need.</p>
             </div>
             <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
@@ -293,13 +297,13 @@ export default function Page() {
               <h3 className="font-display text-xl font-semibold text-foreground mb-2">Support</h3>
               <p className="text-muted-foreground">Graduates receive support or seed support from our partners to begin earning immediately.</p>
             </div>
-            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
+            {/* <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                 <Target className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-display text-xl font-semibold text-foreground mb-2">Launch</h3>
               <p className="text-muted-foreground">Beneficiaries start small businesses, earn with dignity, and grow sustainably.</p>
-            </div>
+            </div> */}
           </div>
           <div className="mt-10 flex items-center justify-center">
             

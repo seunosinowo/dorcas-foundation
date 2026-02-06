@@ -15,19 +15,19 @@ const values = [
 
 const whatWeDo = [
   {
-    title: 'Trade Skills Scholarships',
+    title: 'Funding Academic Scholarships',
     description:
-      'We sponsor training in fashion, tech, catering, beauty, carpentry, welding, and other practical skills that lead directly to income.',
+      'We provide scholarships for formal education, helping young Africans access university, polytechnic, and other academic opportunities.',
   },
   {
-    title: 'Business Start-Up Support',
+    title: 'Supporting Trade Skills Scholarships',
     description:
-      'We provide equipment, starter kits, or seed funding to help beneficiaries start small businesses after completing their training.',
+      'We sponsor practical, income-generating skills training in areas like fashion, tech, catering, carpentry, and more.',
   },
   {
-    title: 'Mentorship & Guidance',
+    title: 'Connecting Scholars to Opportunities',
     description:
-      'We connect youths with mentors who support them in planning, starting, and growing their businesses.',
+      'We link scholars to mentorship, startup support, and job opportunities that help them start earning and building their future.',
   },
 ]
 
@@ -41,7 +41,7 @@ export default function Page() {
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-tight">
               Honouring a Life of <span className="text-primary">Love & Service</span>
             </h1>
-            <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto">The Dorcas Scholars Fund continues the legacy of a woman who dedicated her life to uplifting others.</p>
+            <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto">The Dorcas Scholars Fund continues the legacy of a woman who dedicated her life to uplifting others—empowering youth through both academic and trade opportunities.</p>
           </div>
         </div>
       </section>
@@ -62,6 +62,7 @@ export default function Page() {
               <h2 className="font-display text-3xl md:text-4xl font-semibold text-foreground leading-tight">About the Foundation</h2>
               <div className="mt-6 space-y-4 text-muted-foreground text-lg leading-relaxed">
                 <p>The Dorcas Scholars Fund was created to honour Dorcas Igbokwe, a woman whose life reflected love, compassion, and a deep commitment to helping others.</p>
+
                 <p>We continue her legacy by giving young Africans the skills, support, and confidence they need to build sustainable income and take care of their basic needs.</p>
               </div>
             </div>
@@ -75,8 +76,15 @@ export default function Page() {
             <div className="order-2 lg:order-1">
               <h2 className="font-display text-3xl md:text-4xl font-semibold leading-tight">Why We Exist</h2>
               <div className="mt-6 space-y-4 text-secondary-foreground/80 text-lg leading-relaxed">
-                <p>Many young Africans have the desire to work but lack the skills or capital to begin. The Dorcas Scholars Fund bridges that gap by equipping them with practical skills and startup support.</p>
-                <p>Our work gives youths the opportunity to earn, provide for themselves, and build a future filled with dignity and hope—just as Dorcas Igbokwe did throughout her life.</p>
+                
+                <p>Too many African youth have the talent, ambition, and passion to succeed — but lack access to learning opportunities because of financial constraints.</p>
+
+                <p>Dorcas Scholars Fund exists to change that.</p>
+
+                <p>We believe that education and skills are powerful tools for breaking cycles of poverty. By investing in learning, we empower young people not just to gain knowledge, but to build livelihoods, support themselves, and contribute meaningfully to their communities.
+
+                Our work is rooted in the belief that when youth are given the right opportunities, they don’t just survive — they thrive.</p>
+                
               </div>
             </div>
             <div className="order-1 lg:order-2">
@@ -96,7 +104,7 @@ export default function Page() {
                 <Target className="w-7 h-7 text-primary" />
               </div>
               <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Our Vision</h3>
-              <p className="text-muted-foreground leading-relaxed">To financially empower African youth through trade skills scholarships.</p>
+              <p className="text-muted-foreground leading-relaxed">To empower African youth through both academic and trade skills scholarshipsA future where African youth have access to learning opportunities that enable them to earn, thrive, and live with dignity.</p>
             </div>
 
             <div className="bg-primary text-primary-foreground rounded-2xl p-8 md:p-10 shadow-gold">
@@ -104,7 +112,7 @@ export default function Page() {
                 <Heart className="w-7 h-7 text-primary-foreground" />
               </div>
               <h3 className="font-display text-2xl font-semibold mb-4">Our Mission</h3>
-              <p className="text-primary-foreground/90 leading-relaxed">To provide access to trade skills training, startup support, and opportunity; enabling young Africans to earn a livelihood and care for their basic needs.</p>
+              <p className="text-primary-foreground/90 leading-relaxed">To invest in learning by providing academic and trade scholarships that empower African youth to pursue their passions, build valuable skills, and achieve financial independence.</p>
             </div>
 
             <div className="bg-card rounded-2xl p-8 md:p-10 shadow-soft border border-border">
@@ -112,23 +120,8 @@ export default function Page() {
                 <Target className="w-7 h-7 text-primary" />
               </div>
               <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Our Goal</h3>
-              <p className="text-muted-foreground leading-relaxed">Empower 100,000 African youth in 5 years. 2,000 empowered every year through trade skills training and business support.</p>
+              <p className="text-muted-foreground leading-relaxed">To empower 100,000 African youth from low-income communities through academic and trade scholarships.</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 md:py-28 bg-muted/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="What We Do" title="Transforming Lives Through Practical Skills" description="We believe every young person deserves the opportunity to build a sustainable future." />
-          <div className="mt-16 grid md:grid-cols-3 gap-8">
-            {whatWeDo.map((item, index) => (
-              <div key={item.title} className="bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-elevated transition-shadow" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6 text-primary font-display font-bold text-xl">{index + 1}</div>
-                <h3 className="font-display text-xl font-semibold text-foreground mb-3">{item.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -154,6 +147,23 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <section className="py-20 md:py-28 bg-muted/50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading eyebrow="What We Do" title="Empowering Through Academic & Trade Skills" description="We believe every young person deserves the opportunity to build a sustainable future—whether through academics or practical skills." />
+          <div className="mt-16 grid md:grid-cols-3 gap-8">
+            {whatWeDo.map((item, index) => (
+              <div key={item.title} className="bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-elevated transition-shadow" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6 text-primary font-display font-bold text-xl">{index + 1}</div>
+                <h3 className="font-display text-xl font-semibold text-foreground mb-3">{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      
 
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
