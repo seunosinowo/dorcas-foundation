@@ -2,8 +2,8 @@ import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Heart, Users, Briefcase, Gift, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
-import FlutterwaveDonateForm from '@/components/payments/FlutterwaveDonateForm'
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+import PaystackDonateForm from '@/components/payments/PaystackDonateForm'
+import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription, DialogHeader } from '@/components/ui/dialog'
 const mumTeaching1 = '/mum-teaching-1.jpg'
 
 const givingOptions = [
@@ -25,7 +25,13 @@ export default function Page() {
     <>
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0">
-          <Image src={mumTeaching1} alt="Teaching young people" fill className="object-cover" />
+          <Image 
+            src={mumTeaching1} 
+            alt="Teaching young people" 
+            fill 
+            sizes="100vw"
+            className="object-cover" 
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/70 to-foreground/50" />
         </div>
 
@@ -35,7 +41,7 @@ export default function Page() {
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-background leading-tight">
               Give the Gift of <span className="text-primary">Opportunity</span>
             </h1>
-            <p className="mt-6 text-xl text-background/80 max-w-xl">Join us in empowering young Africans financially by helping them learn a trade skill.</p>
+            <p className="mt-6 text-xl text-background/80 max-w-xl">Join us in empowering young Africans financially by helping them learn academic and trade skill.</p>
           </div>
         </div>
       </section>
@@ -70,7 +76,11 @@ export default function Page() {
                           </button>
                         </DialogTrigger>
                         <DialogContent className="sm:max-w-[540px] p-0">
-                          <FlutterwaveDonateForm simple />
+                          <DialogHeader className="sr-only">
+                            <DialogTitle>Give to Dorcas Scholars Fund</DialogTitle>
+                            <DialogDescription>Secure online donation</DialogDescription>
+                          </DialogHeader>
+                          <PaystackDonateForm simple />
                         </DialogContent>
                         
                       </Dialog>
@@ -96,7 +106,7 @@ export default function Page() {
             <SectionHeading title="Give Online Securely" description="Use your card or bank account to give instantly." />
 
             <div className="mt-8">
-              <FlutterwaveDonateForm simple />
+              <PaystackDonateForm simple />
             </div>
 
             

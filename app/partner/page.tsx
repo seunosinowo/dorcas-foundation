@@ -2,8 +2,8 @@ import { SectionHeading } from '@/components/ui/SectionHeading'
 import Link from 'next/link'
 import { Handshake, Heart, Briefcase, MessageCircle, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
-import FlutterwaveDonateForm from '@/components/payments/FlutterwaveDonateForm'
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+import PaystackDonateForm from '@/components/payments/PaystackDonateForm'
+import { Dialog, DialogContent, DialogTrigger, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 
 export default function Page() {
   return (
@@ -25,8 +25,12 @@ export default function Page() {
                     <ArrowRight size={16} className="ml-2" />
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-[540px] p-0">
-                    <FlutterwaveDonateForm simple />
-                  </DialogContent>
+                      <DialogHeader className="sr-only">
+                        <DialogTitle>Become a Partner</DialogTitle>
+                        <DialogDescription>Support our mission with a donation</DialogDescription>
+                      </DialogHeader>
+                      <PaystackDonateForm simple />
+                    </DialogContent>
                 </Dialog>
                 <Link
                   href="https://wa.me/2348056679806"
@@ -86,7 +90,11 @@ export default function Page() {
                   <ArrowRight size={16} className="ml-2" />
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[540px] p-0">
-                  <FlutterwaveDonateForm simple />
+                  <DialogHeader className="sr-only">
+                    <DialogTitle>Give to Dorcas Scholars Fund</DialogTitle>
+                    <DialogDescription>Your contribution helps empower youths</DialogDescription>
+                  </DialogHeader>
+                  <PaystackDonateForm simple />
                 </DialogContent>
               </Dialog>
             </div>

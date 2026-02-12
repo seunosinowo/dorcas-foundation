@@ -2,8 +2,8 @@ import { SectionHeading } from '@/components/ui/SectionHeading'
 import Link from 'next/link'
 import { ArrowRight, Heart, Target, Users, Lightbulb, Handshake, Scissors, Hammer, Utensils, MonitorSmartphone, Brush, Wrench, Cpu, PenTool, Code, Camera, Palette, PartyPopper, Zap, Car, Sun, Ruler, Shield, MessageCircle } from 'lucide-react'
 import Image from 'next/image'
-import FlutterwaveDonateForm from '@/components/payments/FlutterwaveDonateForm'
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+import PaystackDonateForm from '@/components/payments/PaystackDonateForm'
+import { Dialog, DialogContent, DialogTrigger, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 const mumCommunity1 = '/image/mum_6.jpg'
 const mumTeaching1 = '/image/mum-teaching-1.jpg'
 const mumPortrait2 = '/image/mum_15.jpg'
@@ -93,17 +93,22 @@ const tradeCategories = [
 const impactSoFar = [
   { number: '20', label: 'Scholarships given' },
   { number: '2', label: 'Partners institutions' },
-  { number: '100,000', label: 'Scholarships targeted' },
+  { number: '100,000', label: 'Annual Scholarships targeted' },
 ]
-
- 
 
 export default function Page() {
   return (
     <>
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <Image src={mumTeaching1} alt="Trade skills training" fill priority className="object-cover object-top" />
+          <Image 
+            src={mumTeaching1} 
+            alt="Trade skills training" 
+            fill 
+            priority 
+            sizes="100vw"
+            className="object-cover object-top" 
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-secondary/40 via-background/60 to-background" />
         </div>
 
@@ -113,7 +118,7 @@ export default function Page() {
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground leading-tight tracking-tight">
               Dorcas Scholars Fund <span className="text-secondary font-extrabold"></span>
             </h1>
-            <p className="mt-6 text-xl md:text-2xl text-foreground/90 font-medium max-w-3xl mx-auto drop-shadow-md">Investing in learning. Providing Scholarships.</p>
+            <p className="mt-6 text-xl md:text-2xl text-foreground/90 font-medium max-w-3xl mx-auto drop-shadow-md">Investing in learning. Giving every African youth a futures </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Dialog>
                 <DialogTrigger asChild>
@@ -122,7 +127,11 @@ export default function Page() {
                   </button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[540px] p-0">
-                  <FlutterwaveDonateForm simple />
+                  <DialogHeader className="sr-only">
+                    <DialogTitle>Support Dorcas Scholars Fund</DialogTitle>
+                    <DialogDescription>Your donation helps us provide scholarships and training</DialogDescription>
+                  </DialogHeader>
+                  <PaystackDonateForm simple />
                 </DialogContent>
               </Dialog>
             </div>
@@ -149,10 +158,22 @@ export default function Page() {
             </div>
             <div className="relative animate-fade-in-delay-2">
               <div className="relative rounded-2xl overflow-hidden shadow-elevated h-[400px]">
-                <Image src={mumCommunity1} alt="Community work" fill className="object-cover object-top" />
+                <Image 
+                  src={mumCommunity1} 
+                  alt="Community work" 
+                  fill 
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-top" 
+                />
               </div>
               <div className="absolute -bottom-6 -left-6 w-48 h-48 rounded-2xl overflow-hidden shadow-gold border-4 border-background hidden lg:block">
-                <Image src={mumPortrait2} alt="Dorcas Igbokwe portrait" fill className="object-cover" />
+                <Image 
+                  src={mumPortrait2} 
+                  alt="Dorcas Igbokwe portrait" 
+                  fill 
+                  sizes="192px"
+                  className="object-cover" 
+                />
               </div>
             </div>
           </div>
@@ -167,7 +188,7 @@ export default function Page() {
                 <Target className="w-7 h-7 text-primary" />
               </div>
               <h3 className="font-display text-2xl font-semibold mb-4">Our Vision</h3>
-              <p className="text-secondary-foreground/80 leading-relaxed text-lg">A future where African youth have access to learning opportunities that enable them to earn, thrive, and live with dignity.</p>
+              <p className="text-secondary-foreground/80 leading-relaxed text-lg">A future where every African youth has access to learning opportunities that enable them to earn, thrive, and live with dignity.</p>
             </div>
 
             <div className="bg-secondary text-secondary-foreground rounded-2xl p-8 md:p-10 shadow-soft">
@@ -195,7 +216,11 @@ export default function Page() {
                 </button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[540px] p-0">
-                <FlutterwaveDonateForm simple />
+                <DialogHeader className="sr-only">
+                  <DialogTitle>Support Our Mission</DialogTitle>
+                  <DialogDescription>Your donation helps us provide scholarships and training</DialogDescription>
+                </DialogHeader>
+                <PaystackDonateForm simple />
               </DialogContent>
             </Dialog>
           </div>
@@ -211,6 +236,20 @@ export default function Page() {
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6 text-primary font-display font-bold text-xl">{index + 1}</div>
                 <h3 className="font-display text-xl font-semibold text-foreground mb-3">{item.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-4 md:py-8 bg-muted/50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading eyebrow="" title="Our impact so far" description="Applications are now open on a rolling basis" />
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {impactSoFar.map((stat) => (
+              <div key={stat.label} className="bg-card rounded-2xl p-8 shadow-soft border border-border text-center">
+                <p className="font-display text-4xl font-bold text-foreground">{stat.number}</p>
+                <p className="mt-2 text-muted-foreground">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -243,67 +282,33 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-muted/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Impact So Far" title="We’re launching our first cohort in Feb 2026" description="Applications are now open on a rolling basis" />
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {impactSoFar.map((stat) => (
-              <div key={stat.label} className="bg-card rounded-2xl p-8 shadow-soft border border-border text-center">
-                <p className="font-display text-4xl font-bold text-foreground">{stat.number}</p>
-                <p className="mt-2 text-muted-foreground">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact" className="inline-flex items-center text-primary font-semibold hover:underline hover:underline-offset-4">
-              Apply Now
-              <ArrowRight size={16} className="ml-2" />
-            </Link>
-            <a
-              href="https://wa.me/2348056679806"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-green-500 text-white font-semibold hover:bg-green-600 transition-colors shadow-soft"
-            >
-              <MessageCircle size={16} className="mr-2" />
-              WhatsApp
-            </a>
-          </div>
-        </div>
-      </section>
+      
 
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="How It Works" title="From Application to Impact" description="Our simple, transparent process helps youths gain skills, start earning, and build dignified livelihoods." />
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto justify-items-center text-center">
+            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border flex flex-col items-center">
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                 <Users className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-display text-xl font-semibold text-foreground mb-2">Apply</h3>
               <p className="text-muted-foreground">Interested youths submit applications and are assessed based on need.</p>
             </div>
-            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
+            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border flex flex-col items-center">
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                 <Lightbulb className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-2">Train</h3>
-              <p className="text-muted-foreground">Selected beneficiaries receive practical trade skills training with mentorship from our partners.</p>
+              <h3 className="font-display text-xl font-semibold text-foreground mb-2">Interview</h3>
+              <p className="text-muted-foreground">Shortlisted applicants are interviewed to assess their motivation, goals, and readiness for the scholarship opportunity.</p>
             </div>
-            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
+            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border flex flex-col items-center">
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                 <Handshake className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-2">Support</h3>
-              <p className="text-muted-foreground">Graduates receive support or seed support from our partners to begin earning immediately.</p>
+              <h3 className="font-display text-xl font-semibold text-foreground mb-2">Scholarship</h3>
+              <p className="text-muted-foreground">Successful candidates are awarded scholarships to pursue academic or trade programs, empowering them to build a brighter future.</p>
             </div>
-            {/* <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                <Target className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-2">Launch</h3>
-              <p className="text-muted-foreground">Beneficiaries start small businesses, earn with dignity, and grow sustainably.</p>
-            </div> */}
           </div>
           <div className="mt-10 flex items-center justify-center">
             
@@ -316,7 +321,11 @@ export default function Page() {
             </Link>
               
               <DialogContent className="sm:max-w-[540px] p-0">
-                <FlutterwaveDonateForm simple />
+                <DialogHeader className="sr-only">
+                  <DialogTitle>Apply and Support</DialogTitle>
+                  <DialogDescription>Your donation helps us provide scholarships and training</DialogDescription>
+                </DialogHeader>
+                <PaystackDonateForm simple />
               </DialogContent>
             </Dialog>
           </div>
@@ -345,13 +354,19 @@ export default function Page() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading title="Give Online Securely" description="Use your card or bank account to give instantly." />
           <div className="mt-8 max-w-2xl mx-auto">
-            <FlutterwaveDonateForm simple />
+            <PaystackDonateForm simple />
           </div>
         </div>
       </section>
 
       <section className="relative h-[50vh] min-h-[400px]">
-        <Image src={mumTeaching1} alt="Teaching young people" fill className="object-cover" />
+        <Image 
+          src={mumTeaching1} 
+          alt="Teaching young people" 
+          fill 
+          sizes="100vw"
+          className="object-cover" 
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
       </section>
     </>

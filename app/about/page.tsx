@@ -31,6 +31,12 @@ const whatWeDo = [
   },
 ]
 
+const impactSoFar = [
+  { number: '20', label: 'Scholarships given' },
+  { number: '2', label: 'Partners institutions' },
+  { number: '100,000', label: 'Annual Scholarships targeted' },
+]
+
 export default function Page() {
   return (
     <>
@@ -104,7 +110,7 @@ export default function Page() {
                 <Target className="w-7 h-7 text-primary" />
               </div>
               <h3 className="font-display text-2xl font-semibold text-foreground mb-4">Our Vision</h3>
-              <p className="text-muted-foreground leading-relaxed">To empower African youth through both academic and trade skills scholarshipsA future where African youth have access to learning opportunities that enable them to earn, thrive, and live with dignity.</p>
+              <p className="text-muted-foreground leading-relaxed">A future where every African youth has access to learning opportunities that enable them to earn, thrive, and live with dignity.</p>
             </div>
 
             <div className="bg-primary text-primary-foreground rounded-2xl p-8 md:p-10 shadow-gold">
@@ -126,27 +132,19 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-muted/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <SectionHeading eyebrow="Our Impact Goal" title="Empowering 100,000 African Youths" description="Over the next 5 years, we aim to transform 100,000,000 lives through skills training and business support—2,000 young people empowered every year." />
-
-            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
-              {[
-                { number: '100,000', label: 'Youth Target' },
-                { number: '5', label: 'Years' },
-                { number: '2,000', label: 'Per Year' },
-                { number: '∞', label: 'Impact' },
-              ].map((stat) => (
-                <div key={stat.label} className="bg-card rounded-xl p-6 shadow-soft border border-border">
-                  <p className="font-display text-3xl md:text-4xl font-bold text-primary">{stat.number}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
+      <section className="py-4 md:py-8 bg-muted/50">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <SectionHeading eyebrow="" title="Our impact so far" description="Applications are now open on a rolling basis" />
+                <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                  {impactSoFar.map((stat) => (
+                    <div key={stat.label} className="bg-card rounded-2xl p-8 shadow-soft border border-border text-center">
+                      <p className="font-display text-4xl font-bold text-foreground">{stat.number}</p>
+                      <p className="mt-2 text-muted-foreground">{stat.label}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+              </div>
+            </section>
 
       <section className="py-20 md:py-28 bg-muted/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
