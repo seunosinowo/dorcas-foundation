@@ -12,10 +12,28 @@ export default function Page() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    toast.success('Message sent successfully!', { description: "We'll get back to you as soon as possible." })
-    setFormData({ name: '', email: '', subject: '', message: '' })
-    setIsSubmitting(false)
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        toast.success('Message sent successfully!', { description: "We'll get back to you as soon as possible." })
+        setFormData({ name: '', email: '', subject: '', message: '' })
+      } else {
+        const errorData = await response.json()
+        toast.error(errorData.error || 'Failed to send message', { description: 'Please try again later.' })
+      }
+    } catch (error) {
+      toast.error('An error occurred', { description: 'Please check your connection and try again.' })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

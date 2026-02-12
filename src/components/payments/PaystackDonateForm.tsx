@@ -85,9 +85,8 @@ export default function PaystackDonateForm({ defaultEmail = '', simple = false }
 
   const disabled = useMemo(() => {
     const amt = Number(amount)
-    const hasEmail = simple ? true : !!email
-    return !hasEmail || !publicKey || Number.isNaN(amt) || amt <= 0
-  }, [email, publicKey, amount, simple])
+    return !email || !publicKey || Number.isNaN(amt) || amt <= 0
+  }, [email, publicKey, amount])
 
   const startPayment = (e?: React.FormEvent) => {
     if (e) e.preventDefault()
@@ -128,12 +127,26 @@ export default function PaystackDonateForm({ defaultEmail = '', simple = false }
           console.log('Payment successful', response)
           toast.success('Payment successful')
           setShowSuccessModal(true)
+
+          // Send appreciation email (async)
+          fetch('/api/donate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: emailToUse,
+              name: name,
+              amount: amt,
+              reference: response.reference
+            })
+          }).catch((err) => {
+            console.error('Failed to send donation email', err)
+          })
+
           // Reset form
           setAmount('')
-          if (!simple) {
-            setName('')
-            setPhone('')
-          }
+          setEmail('')
+          setName('')
+          setPhone('')
         },
         onClose: () => {
           console.log('Payment cancelled')
@@ -159,8 +172,12 @@ export default function PaystackDonateForm({ defaultEmail = '', simple = false }
         <div className="grid gap-4">
           <div className="grid gap-3">
             <div>
+              <label className="text-sm text-muted-foreground mb-1 block">Email</label>
+              <Input type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            </div>
+            <div>
               <label className="text-sm text-muted-foreground mb-1 block">Amount (NGN)</label>
-              <Input type="number" min={1} placeholder="Enter amount" value={amount} onChange={(e) => setAmount(e.target.value)} />
+              <Input type="number" min={1} placeholder="Enter amount" value={amount} onChange={(e) => setAmount(e.target.value)} required />
             </div>
           </div>
           <Button type="submit" disabled={disabled || !scriptLoaded} className="mt-2">
