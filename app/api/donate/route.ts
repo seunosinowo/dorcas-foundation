@@ -19,7 +19,7 @@ export async function POST(request: Request) {
     }).format(amount);
 
     const mailOptions = {
-      from: `"Dorcas Igbokwe Foundation" <${process.env.EMAIL_USER}>`,
+      from: `"Dorcas Scholars Fund" <${process.env.EMAIL_USER}>`,
       to: email,
       subject: 'Thank You for Your Generous Donation!',
       html: `
@@ -37,13 +37,13 @@ export async function POST(request: Request) {
               <p style="margin: 4px 0 0; font-size: 14px; color: #64748b;">Amount: ${formattedAmount}</p>
             </div>
 
-            <p style="margin-bottom: 24px;">Because of donors like you, the <strong>Dorcas Igbokwe Foundation</strong> can continue to provide training materials, mentorship, and startup kits to those who need them most. Your contribution is not just a gift; it's an investment in a life, a family, and a community.</p>
+            <p style="margin-bottom: 24px;">Because of donors like you, the <strong>Dorcas Scholars Fund</strong> can continue to provide training materials, academic and trade scholarships, and startup kits to those who need them most. Your contribution is not just a gift; it's an investment in a life, a family, and a community.</p>
             
             <p style="margin-bottom: 8px;">With profound gratitude,</p>
-            <p style="margin: 0; font-weight: 700; color: #8B4513;">The Dorcas Igbokwe Foundation Team</p>
+            <p style="margin: 0; font-weight: 700; color: #8B4513;">The Dorcas Scholars Fund Team</p>
           </div>
           <div style="background-color: #f1f5f9; padding: 20px; text-align: center; font-size: 12px; color: #94a3b8;">
-            <p style="margin: 0;">&copy; ${new Date().getFullYear()} Dorcas Igbokwe Foundation. All rights reserved.</p>
+            <p style="margin: 0;">&copy; ${new Date().getFullYear()} Dorcas Scholars Fund. All rights reserved.</p>
             <p style="margin: 8px 0 0;">Lagos, Nigeria</p>
           </div>
         </div>

@@ -48,7 +48,7 @@ export default function Page() {
 
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Ways to Give" title="Choose How You Want to Help" description="There are many ways to support the Dorcas Igbokwe Foundation and make a difference." />
+          <SectionHeading eyebrow="Ways to Give" title="Choose How You Want to Help" description="There are many ways to support the Dorcas Scholars Fund and make a difference." />
 
           <div className="mt-16 grid md:grid-cols-2 gap-8">
             {givingOptions.map((option) => (
