@@ -107,6 +107,12 @@ export default function Page() {
       title: 'Scholarship & Training',
       description:
         'If selected, DSF covers the full training cost. Begin learning real skills for income.',
+      details: [
+        'Academic scholarship support',
+        'Trade & vocational training',
+        'Hands-on technical workshops',
+        'Professional mentorship',
+      ],
       icon: GraduationCap,
       color: 'bg-amber-50 text-amber-600',
       borderColor: 'border-amber-200',
@@ -125,15 +131,7 @@ export default function Page() {
       color: 'bg-indigo-50 text-indigo-600',
       borderColor: 'border-indigo-200',
     },
-    {
-      number: '06',
-      title: 'Begin Earning',
-      description:
-        'Start earning and building a sustainable future for yourself and your family.',
-      icon: Wallet,
-      color: 'bg-emerald-50 text-emerald-600',
-      borderColor: 'border-emerald-200',
-    },
+    
   ]
 
   // Helper to get step color for timeline connector
