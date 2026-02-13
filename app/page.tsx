@@ -119,12 +119,15 @@ export default function Page() {
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground leading-tight tracking-tight">
               Dorcas Scholars Fund <span className="text-secondary font-extrabold"></span>
             </h1>
-            <p className="mt-6 text-xl md:text-2xl text-foreground/90 font-medium max-w-3xl mx-auto drop-shadow-md">Providing Scholarships. Building Futures.</p>
+            <p className="mt-6 text-xl md:text-2xl text-foreground/90 font-medium max-w-3xl mx-auto drop-shadow-md">
+              Providing Scholarships. <br className="lg:hidden" />
+              Building Futures.
+            </p>
             <div className="mt-10 flex flex-row items-center justify-center gap-4">
               <Dialog>
                 <DialogTrigger asChild>
                   <button className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all shadow-elevated hover:shadow-lg gap-2">
-                    Give
+                    Give now
                   </button>
                 </DialogTrigger>
 
@@ -141,7 +144,7 @@ export default function Page() {
                 href="/apply"
                 className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-full hover:bg-primary/80 transition-all shadow-elevated hover:shadow-lg gap-2"
               >
-                Apply
+                Apply here
               </Link>
             </div>
           </div>
@@ -301,7 +304,7 @@ export default function Page() {
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                 <Users className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-2">Apply</h3>
+              <h3 className="font-display text-xl font-semibold text-foreground mb-2">Apply here</h3>
               <p className="text-muted-foreground">Interested youths submit applications and are assessed based on need.</p>
             </div>
             <div className="bg-card rounded-2xl p-8 shadow-soft border border-border flex flex-col items-center">
@@ -324,7 +327,7 @@ export default function Page() {
             <Dialog>
               <DialogTrigger asChild>
                 <button className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all shadow-elevated hover:shadow-lg gap-2">
-                  Give
+                  Give now
                 </button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[540px] p-0">
@@ -340,7 +343,7 @@ export default function Page() {
               href="/apply"
               className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-full hover:bg-primary/80 transition-all shadow-elevated hover:shadow-lg gap-2"
             >
-              Apply Now
+              Apply here
             </Link>
           </div>
         </div>
