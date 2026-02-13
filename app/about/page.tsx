@@ -34,7 +34,8 @@ const whatWeDo = [
 const impactSoFar = [
   { number: '20', label: 'Scholarships given' },
   { number: '2', label: 'Partners institutions' },
-  { number: '100,000', label: 'Annual Scholarships targeted' },
+  { number: '1000', label: 'Annual Scholarships targeted' },
+  { number: '5', label: 'Employment secured' },
 ]
 
 export default function Page() {
@@ -135,7 +136,7 @@ export default function Page() {
       <section className="py-4 md:py-8 bg-muted/50">
               <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionHeading eyebrow="" title="Our impact so far" description="Applications are now open on a rolling basis" />
-                <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
                   {impactSoFar.map((stat) => (
                     <div key={stat.label} className="bg-card rounded-2xl p-8 shadow-soft border border-border text-center">
                       <p className="font-display text-4xl font-bold text-foreground">{stat.number}</p>
@@ -165,7 +166,7 @@ export default function Page() {
 
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Our Values" title="The Principles That Guide Us" description="These values reflect the life and spirit of Dorkers Scholars Fund." />
+          <SectionHeading eyebrow="Our Values" title="The Principles That Guide Us" description="These values reflect the life and spirit of Dorcas Scholars Fund." />
  
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             {values.map((value) => (

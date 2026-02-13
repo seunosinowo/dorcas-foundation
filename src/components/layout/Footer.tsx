@@ -21,7 +21,8 @@ export function Footer() {
               </div>
             </div>
             <p className="text-secondary-foreground/80 text-sm leading-relaxed max-w-md">
-              Finacially Empowering African youth with trade skills scholarships. Continuing the legacy of love and compassion that Dorcas Igbokwe lived every day.
+              Finacially Empowering African youth with academic & trade scholarships.<br/>
+              Continuing the legacy of love and compassion that Dorcas Igbokwe lived every day.
             </p>
             <p className="mt-4 text-sm text-secondary-foreground/60 flex items-center gap-1">
               Made with <Heart size={14} className="text-accent fill-accent" /> in her memory
@@ -61,8 +62,8 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2 text-sm text-secondary-foreground/70">
                 <Mail size={16} className="shrink-0" />
-                <a href="mailto:info@dorcasigbokwe.org" className="hover:text-secondary-foreground transition-colors">
-                  info@dorcasigbokwe.org
+                <a href="mailto:dorcasscholarsfund@gmail.com" className="hover:text-secondary-foreground transition-colors">
+                  dorcasscholarsfund@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2 text-sm text-secondary-foreground/70">

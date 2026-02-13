@@ -41,11 +41,11 @@ export default function Page() {
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-background leading-tight">
               Give the Gift of <span className="text-primary">Opportunity</span>
             </h1>
-            <p className="mt-6 text-xl text-background/80 max-w-xl">Join us in empowering young Africans financially by helping them learn academic and trade skill.</p>
+            <p className="mt-6 text-xl text-background/80 max-w-xl">Join us in financially empowering young Africans by providing academic and trade scholarships</p>
           </div>
         </div>
       </section>
-
+{/* 
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="Ways to Give" title="Choose How You Want to Help" description="There are many ways to support the Dorcas Scholars Fund and make a difference." />
@@ -96,7 +96,7 @@ export default function Page() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       
 

@@ -1,11 +1,30 @@
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import Link from 'next/link'
-import { MessageCircle, ClipboardList, BadgeCheck, GraduationCap, Briefcase, Wallet, ArrowRight, CheckCircle, Scissors, Hammer, Utensils, MonitorSmartphone, Brush, Wrench, Cpu, PenTool, Code, Camera, Palette, PartyPopper, Zap, Car, Sun, Ruler, Shield } from 'lucide-react'
+import {
+  MessageCircle, ClipboardList, BadgeCheck, GraduationCap,
+  Briefcase, Wallet, ArrowRight, CheckCircle, Scissors, Hammer,
+  Utensils, MonitorSmartphone, Brush, Wrench, Cpu, PenTool,
+  Code, Camera, Palette, PartyPopper, Zap, Car, Sun, Ruler, Shield,
+  Heart, Target, Users, Lightbulb, Handshake
+} from 'lucide-react'
 
 export default function Page() {
   const tradeCategories = [
     {
-      title: 'Digital Trades',
+      title: 'Academic Disciplines',
+      items: [
+        { icon: Lightbulb, title: 'Science & Technology' },
+        { icon: PenTool, title: 'Arts & Humanities' },
+        { icon: Cpu, title: 'Engineering' },
+        { icon: Users, title: 'Social Sciences' },
+        { icon: Shield, title: 'Law & Security Studies' },
+        { icon: Heart, title: 'Health & Medical Sciences' },
+        { icon: Code, title: 'Computer Science' },
+        { icon: Brush, title: 'Creative Arts' },
+      ],
+    },
+    {
+      title: 'Digital & Creative Trades',
       items: [
         { icon: Cpu, title: 'ICT Support & Computer Maintenance' },
         { icon: Code, title: 'Web Development' },
@@ -13,15 +32,6 @@ export default function Page() {
         { icon: MonitorSmartphone, title: 'Digital Marketing' },
         { icon: Camera, title: 'Video Editing & Content Production' },
         { icon: PenTool, title: 'UI/UX Design' },
-        { icon: Cpu, title: 'Data Analysis' },
-        { icon: Cpu, title: 'Computer Networking Essentials' },
-      ],
-    },
-    {
-      title: 'Creative Trades',
-      items: [
-        { icon: Scissors, title: 'Tailoring & Fashion Design' },
-        { icon: Brush, title: 'Beauty & Cosmetology (hair, makeup, nails. etc)' },
         { icon: Camera, title: 'Photography & Videography' },
         { icon: PartyPopper, title: 'Event Decoration & Planning' },
         { icon: Utensils, title: 'Baking & Pastry Making' },
@@ -57,232 +67,215 @@ export default function Page() {
 
   const steps = [
     {
-      number: "01",
-      title: "Apply via WhatsApp",
-      description: "Send us a message on WhatsApp with your basic information and career interests.",
-      details: [
-        "Full Name",
-        "Age",
-        "Location",
-        "Skills or interests",
-        "Career goals"
-      ],
+      number: '01',
+      title: 'Apply via WhatsApp',
+      description:
+        'Send us a message on WhatsApp with your basic information and career interests.',
+      details: ['Full Name', 'Age', 'Location', 'Skills or interests', 'Career goals'],
       icon: MessageCircle,
-      color: "bg-green-50 text-green-600",
-      borderColor: "border-green-200",
-      button: true
+      color: 'bg-green-50 text-green-600',
+      borderColor: 'border-green-200',
+      button: true,
     },
     {
-      number: "02",
-      title: "Interview & Assessment",
-      description: "We'll schedule a short conversation to understand your goals and readiness.",
-      details: [
-        "Your interests",
-        "Your career goals",
-        "Your readiness for training"
-      ],
+      number: '02',
+      title: 'Interview & Assessment',
+      description:
+        "We'll schedule a short conversation to understand your goals and readiness.",
+      details: ['Your interests', 'Your career goals', 'Your readiness for training'],
       icon: ClipboardList,
-      color: "bg-blue-50 text-blue-600",
-      borderColor: "border-blue-200"
+      color: 'bg-blue-50 text-blue-600',
+      borderColor: 'border-blue-200',
     },
     {
-      number: "03",
-      title: "Get Matched to a Skill Program",
-      description: "Based on your goals, we match you to the right training partner.",
+      number: '03',
+      title: 'Get Matched to a Skill Program',
+      description:
+        'Based on your goals, we match you to the right training partner.',
       details: [
-        "Digital Skills",
-        "Creative & Craft Skills",
-        "Business & Vocational Skills",
-        "Trade & Technical Skills"
+        'Digital Skills',
+        'Creative & Craft Skills',
+        'Business & Vocational Skills',
+        'Trade & Technical Skills',
       ],
       icon: BadgeCheck,
-      color: "bg-purple-50 text-purple-600",
-      borderColor: "border-purple-200"
+      color: 'bg-purple-50 text-purple-600',
+      borderColor: 'border-purple-200',
     },
     {
-      number: "04",
-      title: "Scholarship & Training",
-      description: "If selected, DSF covers the full training cost. Begin learning real skills for income.",
+      number: '04',
+      title: 'Scholarship & Training',
+      description:
+        'If selected, DSF covers the full training cost. Begin learning real skills for income.',
       icon: GraduationCap,
-      color: "bg-amber-50 text-amber-600",
-      borderColor: "border-amber-200"
+      color: 'bg-amber-50 text-amber-600',
+      borderColor: 'border-amber-200',
     },
     {
-      number: "05",
-      title: "Job or Startup Support",
-      description: "After training, we continue supporting your transition to employment or entrepreneurship.",
+      number: '05',
+      title: 'Job or Startup Support',
+      description:
+        'After training, we continue supporting your transition to employment or entrepreneurship.',
       details: [
-        "Helping you find a job",
-        "Supporting your small business",
-        "Connecting you to partners"
+        'Helping you find a job',
+        'Supporting your small business',
+        'Connecting you to partners',
       ],
       icon: Briefcase,
-      color: "bg-indigo-50 text-indigo-600",
-      borderColor: "border-indigo-200"
+      color: 'bg-indigo-50 text-indigo-600',
+      borderColor: 'border-indigo-200',
     },
     {
-      number: "06",
-      title: "Begin Earning",
-      description: "Start earning and building a sustainable future for yourself and your family.",
+      number: '06',
+      title: 'Begin Earning',
+      description:
+        'Start earning and building a sustainable future for yourself and your family.',
       icon: Wallet,
-      color: "bg-emerald-50 text-emerald-600",
-      borderColor: "border-emerald-200"
-    }
+      color: 'bg-emerald-50 text-emerald-600',
+      borderColor: 'border-emerald-200',
+    },
   ]
+
+  // Helper to get step color for timeline connector
+  const getStepColor = (index: number) => {
+    const colors = ['green', 'blue', 'purple', 'amber', 'indigo', 'emerald']
+    return colors[index % colors.length]
+  }
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="pt-16 md:pt-24 pb-12 md:pb-20 bg-gradient-to-b from-white to-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            
-            <h1 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6">
+      {/* HERO - cleaner, with subtle pattern */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-white to-slate-50 pt-20 pb-16 md:pt-28 md:pb-24">
+        {/* Soft background ornament */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(34,197,94,0.03)_0%,_transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(59,130,246,0.03)_0%,_transparent_50%)]"></div>
+
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <h1 className="font-display text-4xl font-bold tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
               How to Apply
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              At the Dorcas Scholars Fund, we make the process simple and accessible. Follow these steps to begin your journey toward gaining a trade skill and building a sustainable income.
+            <p className="mt-6 text-lg leading-relaxed text-gray-600 md:text-xl">
+              At the Dorcas Scholars Fund, we make the process simple and accessible.
+              Follow these steps to begin your journey toward gaining a trade skill and
+              building a sustainable income.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="https://wa.me/2348056679806"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center px-6 py-3.5 rounded-full bg-green-500 text-white font-semibold hover:bg-green-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                className="group inline-flex items-center justify-center rounded-full bg-green-500 px-6 py-3.5 font-semibold text-white shadow-lg transition-all duration-300 hover:bg-green-600 hover:shadow-xl hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
               >
                 <MessageCircle size={20} className="mr-3" />
                 Apply via WhatsApp
+                <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Steps Timeline */}
-      <section className="py-12 md:py-20">
+      {/* STEPS - vertical timeline anchored to the left, cleaner and more scannable */}
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            {/* Mobile: single-column ordered steps */}
-            <div className="space-y-8 lg:hidden">
-              {steps.map((step) => (
-                <div key={step.number} className="relative">
-                  <div className={`bg-white rounded-xl p-4 border ${step.borderColor} shadow-soft`}>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className={`w-10 h-10 rounded-xl ${step.color} flex items-center justify-center`}>
-                        <step.icon size={22} />
-                      </div>
-                      <div className="text-3xl font-bold text-gray-100">{step.number}</div>
-                    </div>
-                    <h3 className="font-display text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
-                    <p className="text-gray-600 mb-4">{step.description}</p>
-                    {step.details && (
-                      <ul className="space-y-2 mb-4">
-                        {step.details.map((detail, idx) => (
-                          <li key={idx} className="flex items-start">
-                            <CheckCircle size={18} className="text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-700">{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                    {step.button && (
-                      <Link href="https://wa.me/2348056679806" target="_blank" rel="noreferrer" className="inline-flex items-center text-green-600 font-semibold hover:text-green-700 group">
-                        Message us on WhatsApp
-                        <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="mx-auto max-w-5xl">
+            <div className="relative">
+              {/* Vertical line - only visible on md+ */}
+              <div className="absolute left-8 top-0 h-full w-0.5 bg-gradient-to-b from-green-200 via-blue-200 to-emerald-200 hidden md:block"></div>
 
-            {/* Desktop/large: two-column timeline */}
-            <div className="hidden lg:grid lg:grid-cols-2 gap-6 lg:gap-8">
-              {/* Left Column - Odd Steps */}
-              <div className="space-y-8 lg:mt-12">
-                {steps.filter((_, i) => i % 2 === 0).map((step) => (
-                  <div key={step.number} className="relative">
-                    <div className="absolute right-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-200 via-blue-200 to-emerald-200 translate-x-1/2" />
-                    <div className={`bg-white rounded-xl p-4 border ${step.borderColor} shadow-soft hover:shadow-elevated transition-all duration-300 transform hover:-translate-y-1`}>
-                      <div className="flex items-center justify-between mb-4">
-                        <div className={`w-10 h-10 rounded-xl ${step.color} flex items-center justify-center`}>
-                          <step.icon size={22} />
-                        </div>
-                        <div className="text-3xl font-bold text-gray-100">{step.number}</div>
+              <div className="space-y-12">
+                {steps.map((step, idx) => (
+                  <div key={step.number} className="relative flex flex-col md:flex-row md:items-start md:gap-8">
+                    {/* Step marker - always visible */}
+                    <div className="flex items-center md:block mb-4 md:mb-0">
+                      <div
+                        className={`
+                          flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl
+                          ${step.color} border-4 border-white shadow-md
+                          md:ml-0 md:h-14 md:w-14 md:rounded-xl
+                        `}
+                      >
+                        <step.icon size={28} className="md:hidden" />
+                        <step.icon size={22} className="hidden md:block" />
                       </div>
-                      <h3 className="font-display text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
-                      <p className="text-gray-600 mb-4">{step.description}</p>
-                      {step.details && (
-                        <ul className="space-y-2 mb-4">
-                          {step.details.map((detail, idx) => (
-                            <li key={idx} className="flex items-start">
-                              <CheckCircle size={18} className="text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                              <span className="text-gray-700">{detail}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                      {step.button && (
-                        <Link href="https://wa.me/2348056679806" target="_blank" rel="noreferrer" className="inline-flex items-center text-green-600 font-semibold hover:text-green-700 group">
-                          Message us on WhatsApp
-                          <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                      )}
+                      {/* connector dot for mobile line - hidden on desktop */}
+                      <div className="ml-4 md:hidden">
+                        <span className="text-sm font-bold uppercase tracking-wider text-gray-400">
+                          Step {step.number}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Content card */}
+                    <div className="flex-1 md:pl-8">
+                      <div
+                        className={`
+                          overflow-hidden rounded-2xl border bg-white p-6 shadow-sm
+                          transition-all duration-200 hover:shadow-md
+                          ${step.borderColor}
+                        `}
+                      >
+                        {/* Desktop step number chip */}
+                        <div className="mb-3 hidden items-center gap-2 md:flex">
+                          <span className="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gray-700">
+                            Step {step.number}
+                          </span>
+                        </div>
+
+                        <h3 className="font-display text-xl font-bold text-gray-900 md:text-2xl">
+                          {step.title}
+                        </h3>
+                        <p className="mt-2 text-gray-600">{step.description}</p>
+
+                        {step.details && (
+                          <ul className="mt-4 space-y-2.5">
+                            {step.details.map((detail, i) => (
+                              <li key={i} className="flex items-start">
+                                <CheckCircle
+                                  size={18}
+                                  className="mr-3 mt-0.5 shrink-0 text-green-500"
+                                />
+                                <span className="text-gray-700">{detail}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+
+                        {step.button && (
+                          <div className="mt-5">
+                            <Link
+                              href="https://wa.me/2348056679806"
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex items-center font-semibold text-green-600 transition-colors hover:text-green-700 group"
+                            >
+                              Message us on WhatsApp
+                              <ArrowRight
+                                size={18}
+                                className="ml-2 transition-transform group-hover:translate-x-1"
+                              />
+                            </Link>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 ))}
               </div>
-
-              {/* Right Column - Even Steps */}
-              <div className="space-y-8">
-                {steps.filter((_, i) => i % 2 === 1).map((step) => (
-                  <div key={step.number} className="relative">
-                    <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-200 via-purple-200 to-indigo-200 -translate-x-1/2" />
-                    <div className={`bg-white rounded-xl p-4 border ${step.borderColor} shadow-soft hover:shadow-elevated transition-all duration-300 transform hover:-translate-y-1`}>
-                      <div className="flex items-center justify-between mb-4">
-                        <div className={`w-10 h-10 rounded-xl ${step.color} flex items-center justify-center`}>
-                          <step.icon size={22} />
-                        </div>
-                        <div className="text-3xl font-bold text-gray-100">{step.number}</div>
-                      </div>
-                      <h3 className="font-display text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
-                      <p className="text-gray-600 mb-4">{step.description}</p>
-                      {step.details && (
-                        <ul className="space-y-2 mb-4">
-                          {step.details.map((detail, idx) => (
-                            <li key={idx} className="flex items-start">
-                              <CheckCircle size={18} className="text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                              <span className="text-gray-700">{detail}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Mobile Timeline Line */}
-            <div className="lg:hidden relative mt-12">
-              <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-200 via-blue-200 to-emerald-200 transform -translate-x-1/2" />
-              
-              {steps.map((step, index) => (
-                <div key={step.number} className="relative mb-8 last:mb-0">
-                  <div className={`absolute left-1/2 w-8 h-8 rounded-full ${step.color} border-4 border-white transform -translate-x-1/2 -translate-y-1/2 z-10 flex items-center justify-center`}>
-                    <step.icon size={16} />
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Trade Skills Training Section */}
-      <section className="py-16 md:py-24 bg-muted/50">
+      {/* TRADE SKILLS - Academic & Trade Skills section from homepage */}
+      <section className="py-16 md:py-24 bg-slate-50/70">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Trade Skills Training" title="Some of the Trade Skills we Support" description="We focus on trade skills that open immediate doors for work and entrepreneurship." />
+          <SectionHeading 
+            eyebrow="Academic & Trade Skills" 
+            title="Some of the Academic & Trade Areas We Support" 
+            description="We focus on both academic disciplines and trade skills that open doors for work, entrepreneurship, and lifelong learning." 
+          />
           <div className="mt-12 grid md:grid-cols-2 gap-8">
             {tradeCategories.map((cat) => (
               <div

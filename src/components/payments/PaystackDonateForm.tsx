@@ -35,6 +35,7 @@ declare global {
 type Props = { defaultEmail?: string; simple?: boolean }
 
 export default function PaystackDonateForm({ defaultEmail = '', simple = false }: Props) {
+  const [step, setStep] = useState(1)
   const [email, setEmail] = useState(defaultEmail)
   const [amount, setAmount] = useState('')
   const [name, setName] = useState('')
@@ -71,17 +72,17 @@ export default function PaystackDonateForm({ defaultEmail = '', simple = false }
 
     return () => {
       clearInterval(interval)
-      // We don't necessarily want to remove the script on unmount 
-      // as it might be needed by other instances, but if it's specific to this form:
-      // if (formRef.current && script.parentNode === formRef.current) {
-      //   formRef.current.removeChild(script)
-      // }
     }
   }, [])
   
   const currencyName = 'Nigerian Naira'
 
   const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY
+
+  const canProceedToStep2 = useMemo(() => {
+    const amt = Number(amount)
+    return !Number.isNaN(amt) && amt > 0
+  }, [amount])
 
   const disabled = useMemo(() => {
     const amt = Number(amount)
@@ -90,6 +91,12 @@ export default function PaystackDonateForm({ defaultEmail = '', simple = false }
 
   const startPayment = (e?: React.FormEvent) => {
     if (e) e.preventDefault()
+    if (step === 1) {
+      if (canProceedToStep2) {
+        setStep(2)
+      }
+      return
+    }
     try {
       const amt = Math.round(Number(amount))
       if (!publicKey) {
@@ -147,6 +154,7 @@ export default function PaystackDonateForm({ defaultEmail = '', simple = false }
           setEmail('')
           setName('')
           setPhone('')
+          setStep(1)
         },
         onClose: () => {
           console.log('Payment cancelled')
@@ -168,51 +176,77 @@ export default function PaystackDonateForm({ defaultEmail = '', simple = false }
       onSubmit={startPayment}
       className="bg-card rounded-2xl p-6 shadow-soft border border-border"
     >
-      {simple ? (
-        <div className="grid gap-4">
-          <div className="grid gap-3">
-            <div>
-              <label className="text-sm text-muted-foreground mb-1 block">Email</label>
-              <Input type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
-            </div>
+      <div className="grid gap-4">
+        {step === 1 ? (
+          <>
             <div>
               <label className="text-sm text-muted-foreground mb-1 block">Amount (NGN)</label>
-              <Input type="number" min={1} placeholder="Enter amount" value={amount} onChange={(e) => setAmount(e.target.value)} required />
+              <Input 
+                type="number" 
+                min={1} 
+                placeholder="Enter amount" 
+                value={amount} 
+                onChange={(e) => setAmount(e.target.value)} 
+                required 
+                autoFocus
+              />
             </div>
-          </div>
-          <Button type="submit" disabled={disabled || !scriptLoaded} className="mt-2">
-            {scriptLoaded ? 'Give Now' : 'Loading...'}
-          </Button>
-          {!publicKey && (
-            <p className="text-xs text-destructive/80">Set payment public key in .env</p>
-          )}
-        </div>
-      ) : (
-        <div className="grid gap-4">
-          <div>
-            <label className="text-sm text-muted-foreground mb-1 block">Full Name</label>
-            <Input placeholder="e.g. Name" value={name} onChange={(e) => setName(e.target.value)} />
-          </div>
-          <div>
-            <label className="text-sm text-muted-foreground mb-1 block">Email</label>
-            <Input type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
-          </div>
-          <div>
-            <label className="text-sm text-muted-foreground mb-1 block">Phone (optional)</label>
-            <Input type="tel" placeholder="08012345678" value={phone} onChange={(e) => setPhone(e.target.value)} />
-          </div>
-          <div>
-            <label className="text-sm text-muted-foreground mb-1 block">Amount (NGN)</label>
-            <Input type="number" min={100} placeholder="5000" value={amount} onChange={(e) => setAmount(e.target.value)} required />
-          </div>
-          <Button type="submit" disabled={disabled || !scriptLoaded} className="mt-2">
-            {scriptLoaded ? 'Give Now' : 'Loading...'}
-          </Button>
-          {!publicKey && (
-            <p className="text-xs text-destructive/80">Set payment public key in .env</p>
-          )}
-        </div>
-      )}
+            <Button 
+              type="submit" 
+              disabled={!canProceedToStep2} 
+              className="mt-2"
+            >
+              Continue to Details
+            </Button>
+          </>
+        ) : (
+          <>
+            {!simple && (
+              <>
+                <div>
+                  <label className="text-sm text-muted-foreground mb-1 block">Full Name</label>
+                  <Input placeholder="e.g. Name" value={name} onChange={(e) => setName(e.target.value)} />
+                </div>
+                <div>
+                  <label className="text-sm text-muted-foreground mb-1 block">Phone (optional)</label>
+                  <Input type="tel" placeholder="08012345678" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                </div>
+              </>
+            )}
+            <div>
+              <label className="text-sm text-muted-foreground mb-1 block">Email</label>
+              <Input 
+                type="email" 
+                placeholder="you@example.com" 
+                value={email} 
+                onChange={(e) => setEmail(e.target.value)} 
+                required 
+                autoFocus
+              />
+            </div>
+            <div className="flex gap-3 mt-2">
+              <Button 
+                type="button" 
+                variant="outline" 
+                onClick={() => setStep(1)}
+                className="flex-1"
+              >
+                Back
+              </Button>
+              <Button 
+                type="submit" 
+                disabled={disabled || !scriptLoaded} 
+                className="flex-[2]"
+              >
+                {scriptLoaded ? `Give ₦${Number(amount).toLocaleString()}` : 'Loading...'}
+              </Button>
+            </div>
+          </>
+        )}
+        {!publicKey && (
+          <p className="text-xs text-destructive/80">Set payment public key in .env</p>
+        )}
+      </div>
     </form>
 
     <Dialog open={showSuccessModal} onOpenChange={setShowSuccessModal}>

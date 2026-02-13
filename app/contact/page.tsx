@@ -1,13 +1,33 @@
 'use client'
 
 import { SectionHeading } from '@/components/ui/SectionHeading'
-import { Mail, MapPin, Phone, Send } from 'lucide-react'
+import { Mail, MapPin, Phone, Send, Plus, Minus } from 'lucide-react'
 import { useState } from 'react'
 import { toast } from 'sonner'
 
 export default function Page() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
+
+  const faqs = [
+    { 
+      question: 'How can I apply to be a beneficiary?', 
+      answer: "You can apply by visiting our 'Apply' page and following the steps to message us on WhatsApp. Our team will guide you through the initial information gathering and assessment." 
+    },
+    { 
+      question: 'How are donations used?', 
+      answer: '100% of donations go directly to our programs—sponsoring trade skills training, providing startup kits, and supporting mentorship initiatives.' 
+    },
+    { 
+      question: 'Can I volunteer with the foundation?', 
+      answer: 'Yes! We welcome volunteers who can mentor youth, teach skills, or help with administration. Contact us to learn about current opportunities.' 
+    },
+    { 
+      question: 'How do you select beneficiaries?', 
+      answer: 'We select beneficiaries based on their financial need, personal motivation, and commitment to learning. Shortlisted applicants undergo an interview process to ensure they are matched with the right skill or academic path for their future success.' 
+    },
+  ]
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -77,7 +97,7 @@ export default function Page() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                    <a href="mailto:info@dorcasigbokwe.org" className="text-muted-foreground hover:text-primary transition-colors">info@dorcasigbokwe.org</a>
+                    <a href="mailto:dorcasscholarsfund@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">dorcasscholarsfund@gmail.com</a>
                   </div>
                 </div>
 
@@ -87,7 +107,7 @@ export default function Page() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Phone</h3>
-                    <a href="tel:+234XXXXXXXXXX" className="text-muted-foreground hover:text-primary transition-colors">+234 </a>
+                    <a href="tel:+2348056679806" className="text-muted-foreground hover:text-primary transition-colors">+2348056679806 </a>
                   </div>
                 </div>
               </div>
@@ -143,16 +163,32 @@ export default function Page() {
       <section className="py-20 md:py-28 bg-muted/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="FAQs" title="Frequently Asked Questions" description="Find answers to common questions about our foundation." />
-          <div className="mt-12 max-w-3xl mx-auto space-y-6">
-            {[
-              { question: 'How can I apply to be a beneficiary?', answer: "You can apply by filling out our contact form and selecting 'Beneficiary Application' as the subject. Our team will reach out with next steps." },
-              { question: 'How are donations used?', answer: '100% of donations go directly to our programs—sponsoring trade skills training, providing startup kits, and supporting mentorship initiatives.' },
-              { question: 'Can I volunteer with the foundation?', answer: 'Yes! We welcome volunteers who can mentor youth, teach skills, or help with administration. Contact us to learn about current opportunities.' },
-              { question: 'How do you select beneficiaries?', answer: 'We prioritize youth who demonstrate commitment and need but lack resources. Our selection process includes interviews and assessments to match skills with training programs.' },
-            ].map((faq) => (
-              <div key={faq.question} className="bg-card rounded-2xl p-6 shadow-soft border border-border">
-                <p className="font-display font-semibold mb-2">{faq.question}</p>
-                <p className="text-muted-foreground">{faq.answer}</p>
+          <div className="mt-12 max-w-3xl mx-auto space-y-4">
+            {faqs.map((faq, index) => (
+              <div 
+                key={faq.question} 
+                className="bg-card rounded-2xl shadow-soft border border-border overflow-hidden transition-all duration-300"
+              >
+                <button
+                  onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-muted/30 transition-colors"
+                >
+                  <span className="font-display font-semibold text-foreground text-lg">{faq.question}</span>
+                  <div className="shrink-0 ml-4 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                    {openFaqIndex === index ? <Minus size={18} /> : <Plus size={18} />}
+                  </div>
+                </button>
+                <div 
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    openFaqIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div className="p-6 pt-0 border-t border-border/50 mt-4">
+                    <p className="text-muted-foreground leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>

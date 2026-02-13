@@ -93,7 +93,8 @@ const tradeCategories = [
 const impactSoFar = [
   { number: '20', label: 'Scholarships given' },
   { number: '2', label: 'Partners institutions' },
-  { number: '100,000', label: 'Annual Scholarships targeted' },
+  { number: '1000', label: 'Annual Scholarships targeted' },
+  { number: '5', label: 'Employment secured' },
 ]
 
 export default function Page() {
@@ -118,14 +119,15 @@ export default function Page() {
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground leading-tight tracking-tight">
               Dorcas Scholars Fund <span className="text-secondary font-extrabold"></span>
             </h1>
-            <p className="mt-6 text-xl md:text-2xl text-foreground/90 font-medium max-w-3xl mx-auto drop-shadow-md">Investing in learning. Giving every african youth a future </p>
+            <p className="mt-6 text-xl md:text-2xl text-foreground/90 font-medium max-w-3xl mx-auto drop-shadow-md">Providing Scholarships. Building Futures.</p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Dialog>
                 <DialogTrigger asChild>
                   <button className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all shadow-elevated hover:shadow-lg gap-2">
-                    Support Our Mission
+                    Give
                   </button>
                 </DialogTrigger>
+
                 <DialogContent className="sm:max-w-[540px] p-0">
                   <DialogHeader className="sr-only">
                     <DialogTitle>Support Dorcas Scholars Fund</DialogTitle>
@@ -134,6 +136,13 @@ export default function Page() {
                   <PaystackDonateForm simple />
                 </DialogContent>
               </Dialog>
+
+              <Link 
+                href="/apply"
+                className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-full hover:bg-primary/80 transition-all shadow-elevated hover:shadow-lg gap-2"
+              >
+                Apply
+              </Link>
             </div>
           </div>
         </div>
@@ -245,7 +254,7 @@ export default function Page() {
       <section className="py-4 md:py-8 bg-muted/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading eyebrow="" title="Our impact so far" description="Applications are now open on a rolling basis" />
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {impactSoFar.map((stat) => (
               <div key={stat.label} className="bg-card rounded-2xl p-8 shadow-soft border border-border text-center">
                 <p className="font-display text-4xl font-bold text-foreground">{stat.number}</p>
@@ -300,7 +309,8 @@ export default function Page() {
                 <Lightbulb className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-display text-xl font-semibold text-foreground mb-2">Interview</h3>
-              <p className="text-muted-foreground">Shortlisted applicants are interviewed to assess their motivation, goals, and readiness for the scholarship opportunity.</p>
+              <p className="text-muted-foreground">
+              Shortlisted applicants are interviewed to assess their motivation, goals, and depth of their need.</p>
             </div>
             <div className="bg-card rounded-2xl p-8 shadow-soft border border-border flex flex-col items-center">
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
@@ -310,45 +320,49 @@ export default function Page() {
               <p className="text-muted-foreground">Successful candidates are awarded scholarships to pursue academic or trade programs, empowering them to build a brighter future.</p>
             </div>
           </div>
-          <div className="mt-10 flex items-center justify-center">
-            
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Dialog>
-              <Link
-              href="/apply"
-              className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-primary-foreground font-semibold rounded-full hover:bg-primary/90 transition-all gap-2"
-            >
-              Apply Now
-            </Link>
-              
+              <DialogTrigger asChild>
+                <button className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all shadow-elevated hover:shadow-lg gap-2">
+                  Give
+                </button>
+              </DialogTrigger>
               <DialogContent className="sm:max-w-[540px] p-0">
                 <DialogHeader className="sr-only">
-                  <DialogTitle>Apply and Support</DialogTitle>
+                  <DialogTitle>Give to Dorcas Scholars Fund</DialogTitle>
                   <DialogDescription>Your donation helps us provide scholarships and training</DialogDescription>
                 </DialogHeader>
                 <PaystackDonateForm simple />
               </DialogContent>
             </Dialog>
+
+            <Link
+              href="/apply"
+              className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-full hover:bg-primary/80 transition-all shadow-elevated hover:shadow-lg gap-2"
+            >
+              Apply Now
+            </Link>
           </div>
         </div>
       </section>
 
-      <section className="py-2 md:py-2">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Our Values" title="The Principles That Guide Us" description="These values reflect the life and spirit of Dorcas Igbokwe." />
-
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {values.map((value) => (
-              <div key={value.title} className="text-center group">
-                <div className="w-16 h-16 mx-auto rounded-full bg-muted flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
-                  <value.icon className="w-7 h-7 text-muted-foreground group-hover:text-primary transition-colors" />
+      <section className="py-20 md:py-28">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <SectionHeading eyebrow="Our Values" title="The Principles That Guide Us" description="These values reflect the life and spirit of Dorcas Scholars Fund." />
+       
+                <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                  {values.map((value) => (
+                    <div key={value.title} className="bg-card rounded-2xl p-6 shadow-soft border border-border text-center hover:shadow-elevated transition-shadow">
+                      <div className="w-14 h-14 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                        <value.icon className="w-7 h-7 text-primary" />
+                      </div>
+                      <h4 className="font-display text-lg font-semibold text-foreground mb-2">{value.title}</h4>
+                      <p className="text-muted-foreground">{value.description}</p>
+                    </div>
+                  ))}
                 </div>
-                <h4 className="font-display font-semibold text-foreground mb-2">{value.title}</h4>
-                <p className="text-sm text-muted-foreground">{value.description}</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </section>
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
