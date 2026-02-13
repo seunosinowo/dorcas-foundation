@@ -120,7 +120,7 @@ export default function Page() {
               Dorcas Scholars Fund <span className="text-secondary font-extrabold"></span>
             </h1>
             <p className="mt-6 text-xl md:text-2xl text-foreground/90 font-medium max-w-3xl mx-auto drop-shadow-md">Providing Scholarships. Building Futures.</p>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="mt-10 flex flex-row items-center justify-center gap-4">
               <Dialog>
                 <DialogTrigger asChild>
                   <button className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all shadow-elevated hover:shadow-lg gap-2">
@@ -320,7 +320,7 @@ export default function Page() {
               <p className="text-muted-foreground">Successful candidates are awarded scholarships to pursue academic or trade programs, empowering them to build a brighter future.</p>
             </div>
           </div>
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-10 flex flex-row items-center justify-center gap-4">
             <Dialog>
               <DialogTrigger asChild>
                 <button className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all shadow-elevated hover:shadow-lg gap-2">
