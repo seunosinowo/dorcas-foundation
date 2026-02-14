@@ -120,8 +120,7 @@ export default function Page() {
               Dorcas Scholars Fund <span className="text-secondary font-extrabold"></span>
             </h1>
             <p className="mt-6 text-xl md:text-2xl text-foreground/90 font-medium max-w-3xl mx-auto drop-shadow-md">
-              Providing Scholarships. <br className="lg:hidden" />
-              Building Futures.
+              Providing Scholarships. Building Futures.
             </p>
             <div className="mt-10 flex flex-row items-center justify-center gap-4">
               <Dialog>
