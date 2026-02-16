@@ -21,23 +21,22 @@ export async function POST(request: Request) {
     const mailOptions = {
       from: `"Dorcas Scholars Fund" <${process.env.EMAIL_USER}>`,
       to: email,
-      subject: 'Thank You for Your Generous Donation!',
+      subject: 'Thank You for your Generous Donation!',
       html: `
         <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background-color: #ffffff;">
           <div style="background-color: #8B4513; padding: 40px 20px; text-align: center;">
-            <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: 700;">Thank You, ${name || 'Generous Donor'}!</h1>
+            <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: 700;">Thank You, ${name || 'for your Donation'}!</h1>
           </div>
           <div style="padding: 40px 30px; line-height: 1.6; color: #334155;">
-            <p style="font-size: 18px; margin-bottom: 24px;">Dear ${name || 'Friend'},</p>
+            <p style="font-size: 18px; margin-bottom: 24px;">Dear ${name || 'Partner'},</p>
             <p style="margin-bottom: 24px;">We are deeply moved by your generous donation of <strong>${formattedAmount}</strong>. Your support is a beacon of hope for young Africans striving for a better future through education and skill acquisition.</p>
+            <p style="margin-bottom: 24px;">Because of partners like you, the <strong>Dorcas Scholars Fund</strong> can continue to provide training materials, academic and trade scholarships, and startup kits to those who need them most. Your contribution is not just a gift; it's an investment in a life, a family, and a community.</p>
             
             <div style="background-color: #f8fafc; border-radius: 8px; padding: 20px; margin-bottom: 32px; border-left: 4px solid #8B4513;">
               <p style="margin: 0; font-weight: 600; color: #1e293b;">Donation Summary</p>
               <p style="margin: 8px 0 0; font-size: 14px; color: #64748b;">Reference: ${reference}</p>
               <p style="margin: 4px 0 0; font-size: 14px; color: #64748b;">Amount: ${formattedAmount}</p>
             </div>
-
-            <p style="margin-bottom: 24px;">Because of donors like you, the <strong>Dorcas Scholars Fund</strong> can continue to provide training materials, academic and trade scholarships, and startup kits to those who need them most. Your contribution is not just a gift; it's an investment in a life, a family, and a community.</p>
             
             <p style="margin-bottom: 8px;">With profound gratitude,</p>
             <p style="margin: 0; font-weight: 700; color: #8B4513;">The Dorcas Scholars Fund Team</p>
