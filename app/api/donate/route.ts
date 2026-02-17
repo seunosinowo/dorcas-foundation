@@ -25,7 +25,7 @@ export async function POST(request: Request) {
       html: `
         <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; background-color: #ffffff;">
           <div style="background-color: #8B4513; padding: 40px 20px; text-align: center;">
-            <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: 700;">Thank You, ${name || 'for your Donation'}!</h1>
+            <h1 style="color: #ffffff; margin: 0; font-size: 28px; font-weight: 700;">Thank You, ${name || 'For Your Donation'}!</h1>
           </div>
           <div style="padding: 40px 30px; line-height: 1.6; color: #334155;">
             <p style="font-size: 18px; margin-bottom: 24px;">Dear ${name || 'Partner'},</p>
