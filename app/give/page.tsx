@@ -2,8 +2,8 @@ import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Heart, Users, Briefcase, Gift, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
-import PaystackDonateForm from '@/components/payments/PaystackDonateForm'
-import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription, DialogHeader } from '@/components/ui/dialog'
+// import PaystackDonateForm from '@/components/payments/PaystackDonateForm'
+// import { Dialog, DialogContent, DialogTrigger, DialogTitle, DialogDescription, DialogHeader } from '@/components/ui/dialog'
 const mumTeaching1 = '/mum-teaching-1.jpg'
 
 const givingOptions = [
@@ -100,7 +100,7 @@ export default function Page() {
 
       
 
-      <section className="py-4 md:py-4">
+      {/* <section className="py-4 md:py-4">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto">
             <SectionHeading title="Give Online Securely" description="Use your card or bank account to give instantly." />
@@ -108,8 +108,6 @@ export default function Page() {
             <div className="mt-8">
               <PaystackDonateForm simple />
             </div>
-
-            
 
             <div className="mt-8 text-center">
               <p className="text-muted-foreground mb-4">Have questions about giving?</p>
@@ -120,7 +118,7 @@ export default function Page() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="py-20 md:py-28 bg-primary text-primary-foreground mt-5">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

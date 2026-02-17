@@ -10,7 +10,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   // { href: "/gallery", label: "Gallery" },
-  { href: "/give", label: "Give" },
+  // { href: "/give", label: "Give" },
   { href: "/apply", label: "Apply"},
   { href: "/partner", label: "Become a Partner" },
   { href: "/contact", label: "Contact" },
@@ -62,12 +62,12 @@ export function Header() {
                 </Link>
               ))}
             </nav>
-            <Link
+            {/* <Link
               href="/give"
               className="hidden md:inline-flex items-center justify-center px-6 py-2.5 bg-primary text-primary-foreground font-medium text-sm rounded-full hover:bg-primary/90 transition-all shadow-gold hover:shadow-lg"
             >
               Give Now
-            </Link>
+            </Link> */}
 
             <button
               className="md:hidden p-2 text-foreground"
@@ -99,13 +99,13 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <Link
+            {/* <Link
               href="/give"
               className="mt-2 px-4 py-3 bg-primary text-primary-foreground font-medium text-sm rounded-lg text-center hover:bg-primary/90 transition-all"
               onClick={() => setIsOpen(false)}
             >
               Donate Now
-            </Link>
+            </Link> */}
           </nav>
         </div>
       )}

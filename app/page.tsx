@@ -2,8 +2,8 @@ import { SectionHeading } from '@/components/ui/SectionHeading'
 import Link from 'next/link'
 import { ArrowRight, Heart, Target, Users, Lightbulb, Handshake, Scissors, Hammer, Utensils, MonitorSmartphone, Brush, Wrench, Cpu, PenTool, Code, Camera, Palette, PartyPopper, Zap, Car, Sun, Ruler, Shield, MessageCircle } from 'lucide-react'
 import Image from 'next/image'
-import PaystackDonateForm from '@/components/payments/PaystackDonateForm'
-import { Dialog, DialogContent, DialogTrigger, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
+// import PaystackDonateForm from '@/components/payments/PaystackDonateForm'
+// import { Dialog, DialogContent, DialogTrigger, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 const mumCommunity1 = '/image/mum_6.jpg'
 const mumTeaching1 = '/image/mum-teaching-1.jpg'
 const mumPortrait2 = '/image/mum_15.jpg'
@@ -123,7 +123,7 @@ export default function Page() {
               Providing Scholarships. Building Futures.
             </p>
             <div className="mt-10 flex flex-row items-center justify-center gap-4">
-              <Dialog>
+              {/* <Dialog>
                 <DialogTrigger asChild>
                   <button className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all shadow-elevated hover:shadow-lg gap-2">
                     Give now
@@ -137,7 +137,7 @@ export default function Page() {
                   </DialogHeader>
                   <PaystackDonateForm simple />
                 </DialogContent>
-              </Dialog>
+              </Dialog> */}
 
               <Link 
                 href="/apply"
@@ -219,7 +219,7 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="mt-10 flex items-center justify-center">
+          {/* <div className="mt-10 flex items-center justify-center">
             <Dialog>
               <DialogTrigger asChild>
                 <button className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-full hover:bg-primary/90 transition-all">
@@ -234,7 +234,7 @@ export default function Page() {
                 <PaystackDonateForm simple />
               </DialogContent>
             </Dialog>
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -323,7 +323,7 @@ export default function Page() {
             </div>
           </div>
           <div className="mt-10 flex flex-row items-center justify-center gap-4">
-            <Dialog>
+            {/* <Dialog>
               <DialogTrigger asChild>
                 <button className="inline-flex items-center justify-center px-8 py-4 bg-secondary text-secondary-foreground font-semibold rounded-full hover:bg-secondary/80 transition-all shadow-elevated hover:shadow-lg gap-2">
                   Give now
@@ -336,7 +336,7 @@ export default function Page() {
                 </DialogHeader>
                 <PaystackDonateForm simple />
               </DialogContent>
-            </Dialog>
+            </Dialog> */}
 
             <Link
               href="/apply"
@@ -366,14 +366,14 @@ export default function Page() {
               </div>
             </section>
 
-      <section className="py-16 md:py-24">
+      {/* <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading title="Give Online Securely" description="Use your card or bank account to give instantly." />
           <div className="mt-8 max-w-2xl mx-auto">
             <PaystackDonateForm simple />
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="relative h-[50vh] min-h-[400px]">
         <Image 

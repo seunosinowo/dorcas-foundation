@@ -13,13 +13,18 @@ import {
 } from '@/components/ui/dialog'
 import { CheckCircle2 } from 'lucide-react'
 
+type PaystackResponse = {
+  reference: string
+  [key: string]: unknown
+}
+
 type PaystackConfig = {
   key: string
   email: string
   amount: number
   currency?: string
   ref: string
-  callback: (response: any) => void
+  callback: (response: PaystackResponse) => void
   onClose: () => void
   metadata?: unknown
 }
@@ -130,7 +135,7 @@ export default function PaystackDonateForm({ defaultEmail = '', simple = false }
             }
           ]
         },
-        callback: (response: any) => {
+        callback: (response: PaystackResponse) => {
           console.log('Payment successful', response)
           toast.success('Payment successful')
           setShowSuccessModal(true)

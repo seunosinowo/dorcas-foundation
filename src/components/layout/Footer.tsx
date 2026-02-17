@@ -36,7 +36,7 @@ export function Footer() {
               {[
                 { href: "/", label: "Home" },
                 { href: "/about", label: "About Us" },
-                { href: "/give", label: "Donate" },
+                // { href: "/give", label: "Donate" },
                 { href: "/partner", label: "Become a Partner" },
                 { href: "/contact", label: "Contact" },
               ].map((link) => (

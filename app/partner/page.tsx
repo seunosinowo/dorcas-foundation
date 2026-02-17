@@ -2,8 +2,8 @@ import { SectionHeading } from '@/components/ui/SectionHeading'
 import Link from 'next/link'
 import { Handshake, Heart, Briefcase, MessageCircle, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
-import PaystackDonateForm from '@/components/payments/PaystackDonateForm'
-import { Dialog, DialogContent, DialogTrigger, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
+// import PaystackDonateForm from '@/components/payments/PaystackDonateForm'
+// import { Dialog, DialogContent, DialogTrigger, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 
 export default function Page() {
   return (
@@ -84,7 +84,7 @@ export default function Page() {
               <p className="text-muted-foreground mb-4">
                 Make a donation to fund training, equipment, and startup support for youths.
               </p>
-              <Dialog>
+              {/* <Dialog>
                 <DialogTrigger className="inline-flex items-center text-primary font-medium hover:underline">
                   Give
                   <ArrowRight size={16} className="ml-2" />
@@ -96,7 +96,7 @@ export default function Page() {
                   </DialogHeader>
                   <PaystackDonateForm simple />
                 </DialogContent>
-              </Dialog>
+              </Dialog> */}
             </div>
 
             <div className="bg-card rounded-2xl p-8 shadow-soft border border-border hover:shadow-elevated transition-shadow">
